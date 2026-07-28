@@ -1,4 +1,4 @@
-# Hz. Sauna Sultan Dergâhı — GitHub Pages V5.2
+# Hz. Sauna Sultan Dergâhı — GitHub Pages V5.3
 
 Bu paket, **Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği**
 internet sitesinin örnek içeriklerle zenginleştirilmiş GitHub Pages sürümüdür.
@@ -12,6 +12,8 @@ GitHub Pages teknik dosyaları eklenmiştir.
 Gönüllülük bağlantıları, site içinde açılan ve başvuru bilgilerini kullanıcının
 onayıyla hazır bir WhatsApp mesajına dönüştüren forma bağlanmıştır. Form,
 GitHub Pages üzerinde herhangi bir kişisel veriyi kaydetmez.
+Marka işareti, mevcut koyu yeşil ve altın renkler korunarak altın onikigen
+içindeki “SS” monogramıyla yenilenmiştir.
 
 ## Paketteki dosyalar
 
@@ -22,7 +24,7 @@ GitHub Pages üzerinde herhangi bir kişisel veriyi kaydetmez.
 - `turbe-data.js`: 29 ziyaret noktasının adres ve açıklama verileri
 - `assets/`: Yapay zekâ ile üretilmiş temsili faaliyet görselleri
 - `assets/turbeler/`: Rehberde kullanılan optimize edilmiş gerçek mekân fotoğrafları
-- `assets/logo-mark.svg`: Site logosu ve favicon
+- `assets/logo-mark.svg`: Altın onikigen içindeki SS monogramı, site logosu ve favicon
 - `assets/social-preview.png`: WhatsApp ve sosyal medya paylaşım görseli
 - `404.html`: Özel sayfa bulunamadı ekranı
 - `robots.txt`, `site.webmanifest`: Arama motoru ve mobil web uygulaması dosyaları

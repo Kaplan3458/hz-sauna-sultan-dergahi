@@ -13,8 +13,20 @@
   <rect width="1200" height="630" fill="url(#pattern)"/>
   <circle cx="955" cy="315" r="192" fill="none" stroke="#efe0bc" stroke-opacity=".24" stroke-width="2"/>
   <circle cx="955" cy="315" r="142" fill="none" stroke="#c49a52" stroke-opacity=".35" stroke-width="2"/>
-  <circle cx="955" cy="315" r="92" fill="#ffffff" fill-opacity=".035" stroke="#efe0bc" stroke-opacity=".65" stroke-width="2"/>
-  <text x="955" y="335" text-anchor="middle" fill="#efe0bc" font-family="Georgia, serif" font-size="58" font-weight="700">SS</text>
+  <polygon
+    points="955,223 1001,235.33 1034.67,269 1047,315 1034.67,361 1001,394.67 955,407 909,394.67 875.33,361 863,315 875.33,269 909,235.33"
+    fill="#c49a52"
+    stroke="#efe0bc"
+    stroke-width="3"
+    stroke-linejoin="round"/>
+  <polygon
+    points="955,238 993.5,248.32 1021.68,276.5 1032,315 1021.68,353.5 993.5,381.68 955,392 916.5,381.68 888.32,353.5 878,315 888.32,276.5 916.5,248.32"
+    fill="none"
+    stroke="#092a22"
+    stroke-width="2"
+    stroke-linejoin="round"
+    opacity=".3"/>
+  <text x="955" y="335" text-anchor="middle" fill="#092a22" font-family="Georgia, serif" font-size="58" font-weight="700" letter-spacing="1">SS</text>
   <text x="90" y="205" fill="#c49a52" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5">MANEVİYAT · MERHAMET · DAYANIŞMA</text>
   <text x="90" y="300" fill="#fffdf8" font-family="Georgia, serif" font-size="64" font-weight="700">Hz. Sauna Sultan</text>
   <text x="90" y="375" fill="#efe0bc" font-family="Georgia, serif" font-size="54" font-weight="700">Dergâhı</text>
