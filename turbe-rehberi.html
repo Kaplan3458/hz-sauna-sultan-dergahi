@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092a22">
+  <title>Türbe Rehberi | Hz. Sauna Sultan Dergâhı</title>
+  <meta name="description" content="Türkiye'nin farklı şehirlerindeki 29 türbe ve ziyaret noktası için fotoğraf, adres ve Google Haritalar yol tarifi.">
+  <link rel="canonical" href="https://hzsaunasultan.com/turbe-rehberi.html">
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Türbe Ziyaret Rehberi">
+  <meta property="og:description" content="29 ziyaret noktası, 13 şehir ve doğrudan yol tarifi.">
+  <meta property="og:url" content="https://hzsaunasultan.com/turbe-rehberi.html">
+  <meta property="og:image" content="https://hzsaunasultan.com/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+    :root {
+      --forest: #123f32;
+      --forest-deep: #092a22;
+      --forest-soft: #e9f0eb;
+      --gold: #c49a52;
+      --gold-pale: #efe0bc;
+      --cream: #f8f4eb;
+      --paper: #fffdf8;
+      --ink: #1d2d27;
+      --muted: #64736c;
+      --line: rgba(18,63,50,.14);
+      --shadow: 0 22px 70px rgba(17,49,39,.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .skip-link { position: fixed; left: 15px; top: -60px; z-index: 100; padding: 10px 15px; color: white; background: var(--forest-deep); border-radius: 8px; }
+    .skip-link:focus { top: 15px; }
+
+    .topbar { color: rgba(255,255,255,.78); background: #061f19; font-size: .76rem; }
+    .topbar .container { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .topbar a { color: var(--gold-pale); }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      color: white;
+      background: rgba(9,42,34,.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .nav-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; }
+    .brand img { width: 46px; height: 46px; }
+    .brand strong { display: block; font-family: "Playfair Display", serif; letter-spacing: .02em; }
+    .brand small { display: block; color: rgba(255,255,255,.55); font-size: .63rem; letter-spacing: .13em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 25px; font-size: .85rem; font-weight: 600; }
+    .nav-links a { color: rgba(255,255,255,.8); }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold-pale); }
+    .nav-cta { padding: 11px 19px; color: var(--forest-deep) !important; background: var(--gold-pale); border-radius: 999px; }
+    .menu-btn { display: none; width: 44px; height: 44px; color: white; background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; cursor: pointer; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 78% 35%, rgba(196,154,82,.25), transparent 25%),
+        linear-gradient(115deg, var(--forest-deep), var(--forest));
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .15;
+      background-image:
+        linear-gradient(30deg, transparent 12%, rgba(255,255,255,.17) 12.5%, transparent 13%),
+        linear-gradient(150deg, transparent 12%, rgba(255,255,255,.12) 12.5%, transparent 13%);
+      background-size: 54px 94px;
+    }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 80px; padding: 100px 0 86px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold-pale); font-size: .76rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: currentColor; }
+    h1, h2, h3 { margin: 0; font-family: "Playfair Display", serif; line-height: 1.1; }
+    h1 { max-width: 760px; margin-top: 18px; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: -.055em; }
+    .hero-copy p { max-width: 690px; margin-top: 25px; color: rgba(255,255,255,.72); font-size: 1.05rem; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 24px; background: rgba(255,255,255,.08); }
+    .hero-stat { min-height: 135px; padding: 28px 18px; text-align: center; background: rgba(9,42,34,.45); }
+    .hero-stat strong { display: block; color: var(--gold-pale); font-family: "Playfair Display", serif; font-size: 2.3rem; }
+    .hero-stat span { display: block; margin-top: 5px; color: rgba(255,255,255,.62); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .guide { padding: 74px 0 110px; }
+    .guide-intro { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 34px; }
+    .guide-intro h2 { color: var(--forest-deep); font-size: clamp(2.2rem, 4vw, 3.7rem); letter-spacing: -.035em; }
+    .guide-intro p { max-width: 480px; color: var(--muted); }
+    .toolbar {
+      position: sticky;
+      top: 94px;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) 240px;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,253,248,.95);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 14px 36px rgba(17,49,39,.08);
+    }
+    .field { position: relative; }
+    .field svg { position: absolute; left: 16px; top: 50%; width: 19px; height: 19px; transform: translateY(-50%); color: var(--forest); pointer-events: none; }
+    .field input, .field select {
+      width: 100%;
+      min-height: 52px;
+      color: var(--ink);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      outline: none;
+    }
+    .field input { padding: 0 18px 0 48px; }
+    .field select { padding: 0 42px 0 16px; cursor: pointer; }
+    .field input:focus, .field select:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(196,154,82,.13); }
+    .tabs { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0; }
+    .tab { min-height: 42px; padding: 0 16px; color: var(--forest); background: var(--forest-soft); border: 1px solid transparent; border-radius: 999px; font-size: .79rem; font-weight: 700; cursor: pointer; }
+    .tab.active { color: white; background: var(--forest); }
+    .result-line { display: flex; justify-content: space-between; gap: 20px; margin: 25px 0 18px; color: var(--muted); font-size: .85rem; }
+    .result-line strong { color: var(--forest); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 23px; }
+    .card { overflow: hidden; display: flex; flex-direction: column; background: white; border: 1px solid var(--line); border-radius: 23px; box-shadow: 0 13px 35px rgba(17,49,39,.075); transition: transform .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .card-media { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: var(--forest-soft); }
+    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s; }
+    .card:hover .card-media img { transform: scale(1.035); }
+    .card-index { position: absolute; left: 15px; top: 15px; display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 8px; color: white; background: rgba(9,42,34,.88); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font-size: .72rem; font-weight: 700; backdrop-filter: blur(8px); }
+    .card-body { flex: 1; display: flex; flex-direction: column; padding: 23px; }
+    .category { color: var(--gold); font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .card h3 { margin-top: 8px; color: var(--forest-deep); font-size: 1.25rem; line-height: 1.25; }
+    .location { margin-top: 13px; color: var(--forest); font-size: .82rem; font-weight: 700; }
+    .address { margin-top: 12px; color: var(--muted); font-size: .8rem; line-height: 1.55; }
+    .note { margin-top: 15px; padding: 12px 13px; color: #5b4828; background: #fbf4df; border-left: 3px solid var(--gold); border-radius: 8px; font-size: .76rem; }
+    .actions { display: grid; grid-template-columns: 1fr auto; gap: 9px; margin-top: auto; padding-top: 20px; }
+    .route, .copy {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .route { padding: 0 16px; color: white; background: var(--forest); border: 1px solid var(--forest); }
+    .route:hover { background: var(--forest-deep); }
+    .copy { width: 44px; color: var(--forest); background: white; border: 1px solid var(--line); }
+    .transit { grid-column: 1 / -1; color: var(--forest); background: var(--forest-soft); border-color: transparent; }
+    .empty { display: none; padding: 60px 20px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 24px; }
+    .empty strong { display: block; color: var(--forest-deep); font-family: "Playfair Display", serif; font-size: 1.6rem; }
+
+    .visit-note { margin-top: 55px; padding: 30px; display: grid; grid-template-columns: 48px 1fr; gap: 18px; color: rgba(255,255,255,.72); background: var(--forest-deep); border-radius: 24px; }
+    .visit-note b { width: 48px; height: 48px; display: grid; place-items: center; color: var(--forest-deep); background: var(--gold-pale); border-radius: 50%; font-size: 1.2rem; }
+    .visit-note strong { display: block; color: white; }
+    .visit-note p { margin: 6px 0 0; font-size: .88rem; }
+
+    footer { padding: 55px 0 35px; color: rgba(255,255,255,.58); background: #061f19; }
+    .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; }
+    footer h3 { color: white; font-size: 1.25rem; }
+    footer p { margin: 13px 0 0; font-size: .82rem; }
+    footer ul { margin: 15px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .82rem; }
+    footer a:hover { color: var(--gold-pale); }
+    .copyright { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); font-size: .72rem; }
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 40;
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 18px;
+      color: white;
+      background: #1f8f5f;
+      border: 2px solid white;
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .toast { position: fixed; left: 50%; bottom: 28px; z-index: 60; padding: 11px 17px; color: white; background: var(--forest-deep); border-radius: 999px; transform: translate(-50%, 120px); transition: transform .25s; font-size: .8rem; }
+    .toast.show { transform: translate(-50%, 0); }
+
+    @media (max-width: 980px) {
+      .menu-btn { display: block; }
+      .nav-links { position: fixed; inset: 78px 0 auto; display: none; padding: 28px 20px; flex-direction: column; align-items: flex-start; background: var(--forest-deep); border-top: 1px solid rgba(255,255,255,.1); }
+      .nav-links.open { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 45px; }
+      .hero-stats { max-width: 620px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 660px) {
+      .container { width: min(100% - 26px, 1180px); }
+      .topbar .container { justify-content: center; text-align: center; }
+      .topbar a { display: none; }
+      .brand small { display: none; }
+      .hero-inner { padding: 76px 0 65px; }
+      h1 { font-size: 3.25rem; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero-stat { min-height: 95px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
+      .guide { padding: 55px 0 80px; }
+      .guide-intro { display: block; }
+      .guide-intro p { margin-top: 15px; }
+      .toolbar { top: 86px; grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .result-line { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .whatsapp span { display: none; }
+      .whatsapp { width: 52px; padding: 0; justify-content: center; font-size: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#rehber">İçeriğe geç</a>
+  <div class="topbar">
+    <div class="container">
+      <span>Adres ve ulaşım bilgilerini ziyaret öncesinde doğrulayın.</span>
+      <a href="tel:+905304589383">Yardım hattı · +90 530 458 93 83</a>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Ana menü">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Hz. Sauna Sultan ana sayfa">
+        <img src="assets/logo-mark.svg" alt="">
+        <span><strong>Hz. Sauna Sultan</strong><small>Maneviyat · Merhamet · Dayanışma</small></span>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="index.html#faaliyetler">Faaliyetler</a>
+        <a href="kuran-rehberi.html">Kur’an Rehberi</a>
+        <a href="turbe-rehberi.html" aria-current="page">Türbe Rehberi</a>
+        <a href="index.html#seffaflik">Şeffaflık</a>
+        <a class="nav-cta" href="index.html#iletisim">İletişim</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Ziyaret rehberi</span>
+          <h1>Gönül Sultanlarının İzinde.</h1>
+          <p>Uşşâkî–Nâzenî silsilesi ve Anadolu’nun gönül sultanlarına ait ziyaret noktalarını şehir, ilçe veya isimle bulun; yol tarifine tek dokunuşla ulaşın.</p>
+        </div>
+        <div class="hero-stats" aria-label="Rehber özeti">
+          <div class="hero-stat"><strong>29</strong><span>Ziyaret noktası</span></div>
+          <div class="hero-stat"><strong>13</strong><span>Şehir</span></div>
+          <div class="hero-stat"><strong>9</strong><span>İstanbul rotası</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide" id="rehber">
+      <div class="container">
+        <div class="guide-intro">
+          <div><span class="eyebrow" style="color:var(--gold)">Rehberi keşfet</span><h2>Aradığınız ziyaret noktasını bulun.</h2></div>
+          <p>Fotoğraflar ve konum bilgileri rehberlik amacıyla sunulur. Yolculuğa çıkmadan önce ziyaret koşullarını doğrulamanızı tavsiye ederiz.</p>
+        </div>
+
+        <div class="toolbar" role="search">
+          <label class="field">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="searchInput" type="search" placeholder="İsim, şehir veya ilçe ara…" autocomplete="off" aria-label="Türbe rehberinde ara">
+          </label>
+          <label class="field">
+            <select id="citySelect" aria-label="Şehre göre filtrele">
+              <option value="">Tüm şehirler</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="tabs" role="group" aria-label="Rehber kategorileri">
+          <button class="tab active" type="button" data-category="all">Tümü</button>
+          <button class="tab" type="button" data-category="silsele">Uşşâkî–Nâzenî Silsilesi</button>
+          <button class="tab" type="button" data-category="anadolu">Anadolu Gönül Sultanları</button>
+          <button class="tab" type="button" data-category="istanbul">Yalnızca İstanbul</button>
+        </div>
+
+        <div class="result-line" aria-live="polite">
+          <span><strong id="resultCount">29</strong> ziyaret noktası gösteriliyor</span>
+          <span id="activeFilter">Tüm rehber</span>
+        </div>
+        <div class="grid" id="cardGrid"></div>
+        <div class="empty" id="emptyState">
+          <strong>Sonuç bulunamadı.</strong>
+          <span>Arama kelimesini veya seçtiğiniz filtreleri değiştirmeyi deneyin.</span>
+        </div>
+
+        <aside class="visit-note">
+          <b>i</b>
+          <div><strong>Ziyaret öncesi kısa hatırlatma</strong><p>Adres, ulaşım, açık gün ve saat bilgileri zaman içinde değişebilir. Ziyaret öncesinde güncel bilgileri doğrulayın; mekân kurallarına, çevreye ve diğer ziyaretçilere karşı özenli olun.</p></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div><h3>Hz. Sauna Sultan Dergâhı</h3><p>Manevi değerleri yaşatma, yardımlaşma ve gönüllülük çalışmaları.</p></div>
+        <div><h3>Rehberler</h3><ul><li><a href="turbe-rehberi.html">Türbe Rehberi</a></li><li><a href="kuran-rehberi.html">Kur’an Rehberi</a></li><li><a href="index.html#bilgi">Dini Bilgiler</a></li></ul></div>
+        <div><h3>İletişim</h3><ul><li><a href="tel:+905304589383">+90 530 458 93 83</a></li><li><a href="mailto:yardim@hzsaunasultan.com">yardim@hzsaunasultan.com</a></li><li>Sarıyer / İstanbul</li></ul></div>
+      </div>
+      <div class="copyright">© 2026 Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği</div>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/905304589383?text=Merhaba%2C%20t%C3%BCrbe%20rehberi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp üzerinden iletişime geç"><b>✆</b><span>WhatsApp</span></a>
+  <div class="toast" id="toast" role="status">Adres kopyalandı</div>
+
+  <script src="turbe-data.js"></script>
+  <script>
+    const grid = document.getElementById('cardGrid');
+    const searchInput = document.getElementById('searchInput');
+    const citySelect = document.getElementById('citySelect');
+    const resultCount = document.getElementById('resultCount');
+    const activeFilter = document.getElementById('activeFilter');
+    const emptyState = document.getElementById('emptyState');
+    const toast = document.getElementById('toast');
+    const tabs = [...document.querySelectorAll('.tab')];
+    let selectedCategory = 'all';
+
+    const clean = value => String(value || '').normalize('NFC').replace(/\u0307/g, '');
+    const searchable = value => clean(value).toLocaleLowerCase('tr-TR');
+    const titleCase = value => searchable(value).replace(/(^|[\s/–-])([a-zçğıöşü])/g, (_, lead, char) => lead + char.toLocaleUpperCase('tr-TR'));
+    const cityOf = item => clean(item.displayLocation.split('/').pop().trim());
+    const focusPositions = { 3: '50% 75%', 5: '50% 20%', 7: '50% 25%', 8: '50% 60%', 14: '50% 20%' };
+
+    const cities = [...new Set(window.TURBE_DATA.map(cityOf))].sort((a, b) => a.localeCompare(b, 'tr'));
+    cities.forEach(city => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    });
+
+    function categoryOf(item) {
+      return item.id <= 14 ? 'silsele' : 'anadolu';
+    }
+
+    function categoryLabel(item) {
+      return categoryOf(item) === 'silsele' ? 'Uşşâkî–Nâzenî Silsilesi' : 'Anadolu Gönül Sultanları';
+    }
+
+    function routeUrl(item, mode) {
+      return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(clean(item.address))}&travelmode=${mode}`;
+    }
+
+    function render() {
+      const query = searchable(searchInput.value.trim());
+      const city = citySelect.value;
+      const filtered = window.TURBE_DATA.filter(item => {
+        const haystack = searchable(`${item.name} ${item.displayLocation} ${item.address}`);
+        const queryMatch = !query || haystack.includes(query);
+        const cityMatch = !city || cityOf(item) === city;
+        const categoryMatch =
+          selectedCategory === 'all' ||
+          (selectedCategory === 'istanbul' && item.isIstanbul) ||
+          categoryOf(item) === selectedCategory;
+        return queryMatch && cityMatch && categoryMatch;
+      });
+
+      grid.innerHTML = filtered.map(item => {
+        const imageStyle = focusPositions[item.id] ? ` style="object-position:${focusPositions[item.id]}"` : '';
+        const note = item.note ? `<div class="note">${clean(item.note)}</div>` : '';
+        const transit = item.isIstanbul
+          ? `<a class="route transit" href="${routeUrl(item, 'transit')}" target="_blank" rel="noopener">Toplu taşımayla yol tarifi</a>`
+          : '';
+        return `
+          <article class="card">
+            <div class="card-media">
+              <img src="assets/turbeler/${item.id}.webp" alt="${titleCase(item.name)}" loading="lazy" decoding="async"${imageStyle}>
+              <span class="card-index">${String(item.id).padStart(2, '0')}</span>
+            </div>
+            <div class="card-body">
+              <span class="category">${categoryLabel(item)}</span>
+              <h3>${titleCase(item.name)}</h3>
+              <div class="location">⌖ ${titleCase(item.displayLocation)}</div>
+              <p class="address">${clean(item.address)}</p>
+              ${note}
+              <div class="actions">
+                <a class="route" href="${routeUrl(item, 'driving')}" target="_blank" rel="noopener">Araçla yol tarifi ↗</a>
+                <button class="copy" type="button" data-address="${clean(item.address).replaceAll('"', '&quot;')}" aria-label="Adresi kopyala" title="Adresi kopyala">⧉</button>
+                ${transit}
+              </div>
+            </div>
+          </article>`;
+      }).join('');
+
+      resultCount.textContent = filtered.length;
+      emptyState.style.display = filtered.length ? 'none' : 'block';
+      activeFilter.textContent = [tabs.find(tab => tab.dataset.category === selectedCategory)?.textContent, city].filter(Boolean).join(' · ');
+    }
+
+    searchInput.addEventListener('input', render);
+    citySelect.addEventListener('change', render);
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(item => item.classList.remove('active'));
+      tab.classList.add('active');
+      selectedCategory = tab.dataset.category;
+      render();
+    }));
+    grid.addEventListener('click', async event => {
+      const button = event.target.closest('.copy');
+      if (!button) return;
+      try {
+        await navigator.clipboard.writeText(button.dataset.address);
+        toast.classList.add('show');
+        window.setTimeout(() => toast.classList.remove('show'), 1800);
+      } catch {
+        window.prompt('Adresi kopyalayın:', button.dataset.address);
+      }
+    });
+
+    const menuButton = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+
+    render();
+  </script>
+</body>
+</html>

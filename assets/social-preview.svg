@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="78%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#c49a52" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#092a22" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pattern" width="54" height="94" patternUnits="userSpaceOnUse">
+      <path d="M0 11L27 0l27 11M0 83l27 11 27-11" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#092a22"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#pattern)"/>
+  <circle cx="955" cy="315" r="192" fill="none" stroke="#efe0bc" stroke-opacity=".24" stroke-width="2"/>
+  <circle cx="955" cy="315" r="142" fill="none" stroke="#c49a52" stroke-opacity=".35" stroke-width="2"/>
+  <circle cx="955" cy="315" r="92" fill="#ffffff" fill-opacity=".035" stroke="#efe0bc" stroke-opacity=".65" stroke-width="2"/>
+  <text x="955" y="335" text-anchor="middle" fill="#efe0bc" font-family="Georgia, serif" font-size="58" font-weight="700">SS</text>
+  <text x="90" y="205" fill="#c49a52" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5">MANEVİYAT · MERHAMET · DAYANIŞMA</text>
+  <text x="90" y="300" fill="#fffdf8" font-family="Georgia, serif" font-size="64" font-weight="700">Hz. Sauna Sultan</text>
+  <text x="90" y="375" fill="#efe0bc" font-family="Georgia, serif" font-size="54" font-weight="700">Dergâhı</text>
+  <text x="90" y="445" fill="#ffffff" fill-opacity=".72" font-family="Arial, sans-serif" font-size="24">Gönülden gönüle uzanan bir iyilik yolu.</text>
+  <rect x="90" y="500" width="96" height="3" rx="1.5" fill="#c49a52"/>
+</svg>
