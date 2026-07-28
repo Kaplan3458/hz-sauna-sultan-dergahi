@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f32">
+  <title>Hz. Sauna Sultan Dergâhı</title>
+  <meta name="description" content="Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği resmî web sitesi taslak önizlemesi.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+    :root {
+      --forest: #123f32;
+      --forest-deep: #092a22;
+      --forest-soft: #e9f0eb;
+      --gold: #c49a52;
+      --gold-pale: #efe0bc;
+      --cream: #f8f4eb;
+      --paper: #fffdf8;
+      --ink: #1d2d27;
+      --muted: #64736c;
+      --line: rgba(18, 63, 50, .13);
+      --shadow: 0 22px 70px rgba(17, 49, 39, .12);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: currentColor; }
+    h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.12; margin: 0; }
+    h2 { color: var(--forest-deep); font-size: clamp(2.1rem, 4.5vw, 4rem); letter-spacing: -.035em; }
+    p { margin: 0; }
+    .lead { max-width: 680px; margin-top: 20px; color: var(--muted); font-size: 1.05rem; }
+    .section { padding: 112px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .section-head .lead { max-width: 480px; }
+
+    .topbar {
+      color: rgba(255,255,255,.75);
+      background: var(--forest-deep);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      font-size: .77rem;
+      letter-spacing: .08em;
+    }
+    .topbar .container {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .topbar-note { color: var(--gold-pale); }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      color: white;
+      background: rgba(9, 42, 34, .94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .nav-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 13px; }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: var(--gold-pale);
+      border: 1px solid rgba(239, 224, 188, .5);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, transparent 38%, rgba(196,154,82,.25) 39% 42%, transparent 43%),
+        rgba(255,255,255,.04);
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+    }
+    .brand-text strong { display: block; font-family: "Playfair Display", serif; letter-spacing: .02em; }
+    .brand-text small { display: block; color: rgba(255,255,255,.55); font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 27px; font-size: .86rem; font-weight: 600; }
+    .nav-links a { color: rgba(255,255,255,.8); transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-pale); }
+    .nav-cta, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+    .nav-cta { color: var(--forest-deep) !important; background: var(--gold-pale); }
+    .nav-cta:hover, .btn:hover { transform: translateY(-2px); }
+    .menu-btn {
+      display: none;
+      width: 44px; height: 44px;
+      color: white;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 730px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 76% 40%, rgba(196,154,82,.24), transparent 25%),
+        linear-gradient(112deg, rgba(9,42,34,.98) 0 52%, rgba(18,63,50,.93) 76%, rgba(9,42,34,.99) 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .17;
+      background-image:
+        linear-gradient(30deg, transparent 12%, rgba(255,255,255,.18) 12.5%, transparent 13%),
+        linear-gradient(150deg, transparent 12%, rgba(255,255,255,.12) 12.5%, transparent 13%);
+      background-size: 54px 94px;
+    }
+    .hero-orbit {
+      position: absolute;
+      right: max(-90px, calc((100vw - 1180px)/2 - 100px));
+      top: 50%;
+      width: 620px;
+      height: 620px;
+      transform: translateY(-50%);
+      border: 1px solid rgba(239,224,188,.16);
+      border-radius: 50%;
+    }
+    .hero-orbit::before, .hero-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border: 1px solid rgba(239,224,188,.14);
+      border-radius: 50%;
+    }
+    .hero-orbit::after { inset: 29%; background: rgba(196,154,82,.06); }
+    .hero .container { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 80px; }
+    .hero-copy { padding: 96px 0 112px; }
+    .hero h1 { max-width: 790px; margin-top: 24px; font-size: clamp(3.5rem, 7vw, 6.7rem); letter-spacing: -.045em; }
+    .hero h1 span { color: var(--gold-pale); }
+    .hero .intro { max-width: 660px; margin-top: 24px; color: rgba(255,255,255,.7); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+    .btn-gold { color: var(--forest-deep); background: var(--gold-pale); }
+    .btn-ghost { color: white; border-color: rgba(255,255,255,.27); background: rgba(255,255,255,.04); }
+    .hero-card {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 390px);
+      padding: 38px;
+      border: 1px solid rgba(239,224,188,.22);
+      border-radius: 36px;
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 30px 100px rgba(0,0,0,.16);
+    }
+    .hero-card-icon {
+      width: 74px; height: 74px;
+      display: grid; place-items: center;
+      color: var(--gold-pale);
+      border: 1px solid rgba(239,224,188,.35);
+      border-radius: 50%;
+      font-size: 1.8rem;
+    }
+    .hero-card h3 { margin-top: 25px; font-size: 1.75rem; }
+    .hero-card p { margin-top: 14px; color: rgba(255,255,255,.65); font-size: .94rem; }
+    .hero-card-list { display: grid; gap: 12px; margin-top: 26px; }
+    .hero-card-list div { display: flex; gap: 12px; align-items: center; color: rgba(255,255,255,.84); font-size: .86rem; }
+    .hero-card-list span { width: 24px; height: 24px; display: grid; place-items: center; flex: 0 0 auto; color: var(--gold-pale); border: 1px solid rgba(239,224,188,.25); border-radius: 50%; }
+
+    .trust-strip { position: relative; z-index: 5; margin-top: -46px; }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .trust-item { min-height: 96px; display: flex; align-items: center; gap: 17px; padding: 24px 28px; border-right: 1px solid var(--line); }
+    .trust-item:last-child { border: 0; }
+    .trust-icon { width: 45px; height: 45px; display: grid; place-items: center; flex: 0 0 auto; color: var(--forest); background: var(--forest-soft); border-radius: 50%; font-size: 1.15rem; }
+    .trust-item strong { display: block; color: var(--forest-deep); font-size: .93rem; }
+    .trust-item small { color: var(--muted); font-size: .76rem; }
+
+    .about-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 85px; }
+    .about-art { position: relative; min-height: 530px; }
+    .about-panel {
+      position: absolute;
+      inset: 0 58px 55px 0;
+      overflow: hidden;
+      border-radius: 150px 150px 30px 30px;
+      background:
+        radial-gradient(circle at 50% 27%, rgba(239,224,188,.68) 0 3%, transparent 3.5%),
+        radial-gradient(circle at 50% 50%, transparent 0 20%, rgba(239,224,188,.16) 20.5% 21%, transparent 21.5%),
+        linear-gradient(150deg, #285f4d, var(--forest-deep));
+      box-shadow: var(--shadow);
+    }
+    .about-panel::before {
+      content: "☾";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--gold-pale);
+      font-family: serif;
+      font-size: 8rem;
+      transform: rotate(-10deg);
+      text-shadow: 0 20px 80px rgba(0,0,0,.2);
+    }
+    .about-badge {
+      position: absolute;
+      right: 0; bottom: 0;
+      width: 190px; min-height: 170px;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 28px;
+      color: var(--forest-deep);
+      border: 10px solid var(--paper);
+      border-radius: 28px;
+      background: var(--gold-pale);
+    }
+    .about-badge strong { font-family: "Playfair Display", serif; font-size: 2rem; line-height: 1; }
+    .about-badge small { margin-top: 10px; font-weight: 600; line-height: 1.4; }
+    .about-copy h2 { margin-top: 18px; }
+    .about-copy .lead { margin-bottom: 30px; }
+    .value-list { display: grid; gap: 16px; }
+    .value {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      padding: 17px 0;
+      border-top: 1px solid var(--line);
+    }
+    .value-num { color: var(--gold); font-weight: 700; }
+    .value h3 { font-family: "DM Sans", sans-serif; color: var(--forest); font-size: 1rem; }
+    .value p { margin-top: 4px; color: var(--muted); font-size: .88rem; }
+
+    .activities { background: var(--cream); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .activity-card {
+      min-height: 300px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .activity-card:hover { transform: translateY(-6px); border-color: rgba(196,154,82,.5); box-shadow: var(--shadow); }
+    .card-icon { width: 54px; height: 54px; display: grid; place-items: center; color: var(--forest); border-radius: 16px; background: var(--forest-soft); font-size: 1.35rem; }
+    .activity-card h3 { margin-top: 28px; color: var(--forest-deep); font-size: 1.45rem; }
+    .activity-card p { margin-top: 13px; color: var(--muted); font-size: .9rem; }
+    .activity-card a { display: inline-flex; gap: 8px; margin-top: 22px; color: var(--gold); font-size: .84rem; font-weight: 700; }
+
+    .impact {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: var(--forest);
+    }
+    .impact::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 10% 20%, rgba(196,154,82,.16), transparent 28%), radial-gradient(circle at 90% 90%, rgba(255,255,255,.08), transparent 27%);
+    }
+    .impact .container { position: relative; }
+    .impact h2 { color: white; }
+    .impact .lead { color: rgba(255,255,255,.64); }
+    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; }
+    .impact-card { padding: 30px 26px; border: 1px solid rgba(255,255,255,.13); border-radius: 22px; background: rgba(255,255,255,.04); }
+    .impact-card strong { display: block; color: var(--gold-pale); font-family: "Playfair Display", serif; font-size: 2.1rem; }
+    .impact-card span { display: block; margin-top: 6px; color: rgba(255,255,255,.68); font-size: .84rem; }
+    .impact-note { margin-top: 20px; color: rgba(255,255,255,.48); font-size: .74rem; }
+
+    .quote-section { padding: 100px 0; text-align: center; background: var(--forest-soft); }
+    .quote-mark { color: var(--gold); font-family: Georgia, serif; font-size: 5rem; line-height: .7; }
+    blockquote { max-width: 900px; margin: 26px auto 0; color: var(--forest-deep); font-family: "Playfair Display", serif; font-size: clamp(1.8rem, 3.8vw, 3.1rem); line-height: 1.3; }
+    cite { display: block; margin-top: 24px; color: var(--muted); font-style: normal; font-size: .82rem; letter-spacing: .11em; text-transform: uppercase; }
+
+    .knowledge-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: stretch; }
+    .featured-article {
+      padding: 48px;
+      color: white;
+      border-radius: 30px;
+      background: linear-gradient(145deg, var(--forest), var(--forest-deep));
+    }
+    .featured-article .tag { display: inline-block; padding: 6px 11px; color: var(--gold-pale); border: 1px solid rgba(239,224,188,.25); border-radius: 999px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+    .featured-article h3 { margin-top: 70px; font-size: clamp(2rem, 4vw, 3.2rem); }
+    .featured-article p { margin-top: 17px; color: rgba(255,255,255,.67); }
+    .article-list { display: grid; gap: 16px; }
+    .article-card { display: grid; grid-template-columns: 58px 1fr; gap: 19px; padding: 25px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); }
+    .article-no { width: 58px; height: 58px; display: grid; place-items: center; color: var(--gold); border-radius: 16px; background: var(--cream); font-family: "Playfair Display", serif; font-size: 1.3rem; }
+    .article-card h3 { font-family: "DM Sans", sans-serif; color: var(--forest); font-size: 1rem; }
+    .article-card p { margin-top: 6px; color: var(--muted); font-size: .83rem; }
+
+    .calendar { background: var(--cream); }
+    .event-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; }
+    .event-card, .notice-card { border: 1px solid var(--line); border-radius: 28px; background: var(--paper); }
+    .event-card { display: grid; grid-template-columns: 130px 1fr; overflow: hidden; }
+    .event-date { display: grid; place-items: center; align-content: center; color: var(--gold-pale); background: var(--forest); text-align: center; }
+    .event-date strong { font-family: "Playfair Display", serif; font-size: 2.8rem; }
+    .event-date span { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+    .event-copy { padding: 34px; }
+    .event-copy h3 { color: var(--forest-deep); font-size: 1.55rem; }
+    .event-copy p { margin-top: 10px; color: var(--muted); font-size: .88rem; }
+    .event-meta { display: flex; gap: 18px; margin-top: 20px; color: var(--forest); font-size: .78rem; font-weight: 700; }
+    .notice-card { padding: 34px; color: white; background: var(--forest-deep); }
+    .notice-card h3 { font-size: 1.6rem; }
+    .notice-card p { margin-top: 13px; color: rgba(255,255,255,.62); font-size: .88rem; }
+    .status-pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 25px; padding: 8px 12px; color: var(--gold-pale); border: 1px solid rgba(239,224,188,.22); border-radius: 999px; font-size: .74rem; }
+    .status-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+
+    .support { color: white; background: var(--forest-deep); }
+    .support h2 { color: white; }
+    .support .lead { color: rgba(255,255,255,.63); }
+    .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 50px; }
+    .support-card { padding: 38px; border: 1px solid rgba(255,255,255,.12); border-radius: 28px; background: rgba(255,255,255,.045); }
+    .support-card h3 { font-size: 1.65rem; }
+    .support-card p { margin-top: 12px; color: rgba(255,255,255,.62); font-size: .9rem; }
+    .support-card ul { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .support-card li { display: flex; gap: 11px; color: rgba(255,255,255,.8); font-size: .86rem; }
+    .support-card li::before { content: "✓"; color: var(--gold-pale); }
+    .disabled-btn { width: 100%; margin-top: 28px; opacity: .8; cursor: not-allowed; }
+
+    .transparency-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+    .report-list { display: grid; gap: 13px; margin-top: 30px; }
+    .report { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 19px 21px; border: 1px solid var(--line); border-radius: 16px; }
+    .report span { color: var(--forest); font-weight: 600; font-size: .88rem; }
+    .report small { color: var(--gold); }
+    .transparency-art { padding: 44px; border: 1px solid var(--line); border-radius: 30px; background: var(--cream); }
+    .transparency-art h3 { color: var(--forest-deep); font-size: 1.8rem; }
+    .transparency-art p { margin-top: 14px; color: var(--muted); }
+    .process { display: grid; gap: 18px; margin-top: 32px; }
+    .process-item { display: grid; grid-template-columns: 38px 1fr; gap: 15px; }
+    .process-item b { width: 38px; height: 38px; display: grid; place-items: center; color: var(--forest); border-radius: 50%; background: var(--gold-pale); }
+    .process-item strong { display: block; color: var(--forest); }
+    .process-item small { color: var(--muted); }
+
+    .gallery { background: var(--cream); }
+    .gallery-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; grid-template-rows: 245px 245px; gap: 16px; }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(9,42,34,.72), rgba(18,63,50,.32)),
+        repeating-linear-gradient(45deg, #c9d6ce 0 12px, #dae2dc 12px 24px);
+    }
+    .gallery-item:first-child { grid-row: 1 / 3; }
+    .gallery-item::after {
+      content: attr(data-label);
+      position: absolute; left: 22px; right: 22px; bottom: 20px;
+      padding-top: 16px;
+      color: white;
+      border-top: 1px solid rgba(255,255,255,.34);
+      font-weight: 700;
+      font-size: .87rem;
+    }
+    .gallery-item span { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.65); font-size: 2.3rem; }
+    .gallery-note { margin-top: 18px; color: var(--muted); font-size: .78rem; }
+
+    .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      color: var(--forest-deep);
+      border: 0;
+      background: transparent;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-question span:last-child { color: var(--gold); font-size: 1.35rem; transition: transform .2s; }
+    .faq-answer { max-height: 0; overflow: hidden; color: var(--muted); font-size: .88rem; transition: max-height .3s ease, padding .3s; }
+    .faq-item.open .faq-answer { max-height: 160px; padding: 0 0 22px; }
+    .faq-item.open .faq-question span:last-child { transform: rotate(45deg); }
+
+    .contact {
+      padding: 90px 0 0;
+      color: white;
+      background: var(--forest-deep);
+    }
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding: 52px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 30px;
+      background: linear-gradient(120deg, rgba(255,255,255,.07), rgba(196,154,82,.09));
+    }
+    .contact h2 { color: white; font-size: clamp(2rem, 4vw, 3.6rem); }
+    .contact p { margin-top: 14px; color: rgba(255,255,255,.62); }
+    .contact-info { display: grid; gap: 10px; min-width: 280px; }
+    .contact-info div { display: flex; justify-content: space-between; gap: 30px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: .83rem; }
+    .contact-info span { color: rgba(255,255,255,.5); }
+    .contact-info strong { color: var(--gold-pale); font-weight: 600; }
+    footer { margin-top: 74px; padding: 35px 0; border-top: 1px solid rgba(255,255,255,.1); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; color: rgba(255,255,255,.46); font-size: .73rem; }
+    .footer-links { display: flex; gap: 20px; }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        position: fixed;
+        inset: 82px 0 auto;
+        display: none;
+        padding: 30px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--forest-deep);
+        border-top: 1px solid rgba(255,255,255,.1);
+      }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: block; }
+      .hero { min-height: auto; }
+      .hero .container { grid-template-columns: 1fr; }
+      .hero-copy { padding: 85px 0 40px; }
+      .hero-card { justify-self: start; margin-bottom: 110px; }
+      .hero-orbit { opacity: .5; }
+      .about-grid, .knowledge-grid, .transparency-grid, .faq-grid { grid-template-columns: 1fr; gap: 55px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .event-layout { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .support-grid { grid-template-columns: 1fr; }
+      .contact-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .section { padding: 78px 0; }
+      .topbar .container { justify-content: center; }
+      .topbar-note { display: none; }
+      .brand-text small { display: none; }
+      .hero h1 { font-size: 3.25rem; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .trust-item:last-child { border-bottom: 0; }
+      .about-art { min-height: 410px; }
+      .about-panel { right: 25px; }
+      .about-badge { width: 155px; min-height: 140px; padding: 20px; }
+      .cards, .impact-grid { grid-template-columns: 1fr; }
+      .featured-article { padding: 34px; }
+      .featured-article h3 { margin-top: 45px; }
+      .event-card { grid-template-columns: 92px 1fr; }
+      .event-copy { padding: 26px 22px; }
+      .event-meta { flex-direction: column; gap: 4px; }
+      .support-card, .transparency-art { padding: 28px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 280px 190px 190px; }
+      .gallery-item:first-child { grid-column: 1 / 3; grid-row: auto; }
+      .contact-card { padding: 32px 25px; }
+      .contact-info { min-width: 0; }
+      .contact-info div { flex-direction: column; gap: 4px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği</span>
+      <span class="topbar-note">Sarıyer · İstanbul</span>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#anasayfa" aria-label="Ana sayfa">
+        <span class="brand-mark">SS</span>
+        <span class="brand-text"><strong>Hz. Sauna Sultan</strong><small>Maneviyat · Merhamet · Dayanışma</small></span>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#faaliyetler">Faaliyetler</a>
+        <a href="#bilgi">Dini Bilgiler</a>
+        <a href="#seffaflik">Şeffaflık</a>
+        <a href="#iletisim">İletişim</a>
+        <a class="nav-cta" href="#destek">Gönüllü Ol</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="anasayfa">
+      <div class="hero-orbit"></div>
+      <div class="container">
+        <div class="hero-copy">
+          <span class="eyebrow">Birlikte iyiliğe</span>
+          <h1>Gönülden gönüle <span>uzanan bir yol.</span></h1>
+          <p class="intro">Manevi değerleri yaşatmak, ihtiyaç sahiplerinin yanında olmak ve merhameti dayanışmaya dönüştürmek için bir aradayız.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#faaliyetler">Faaliyetleri keşfet <span>→</span></a>
+            <a class="btn btn-ghost" href="#hakkimizda">Bizi tanıyın</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="hero-card-icon">☾</div>
+          <h3>İyilik, güvenle büyür.</h3>
+          <p>Her yardımın izlenebilir, her gönüllü katkının kıymetli olduğu şeffaf bir dayanışma anlayışı.</p>
+          <div class="hero-card-list">
+            <div><span>✓</span> Tüzüğe bağlı faaliyetler</div>
+            <div><span>✓</span> Kişisel verilerin korunması</div>
+            <div><span>✓</span> Belgeli ve raporlu yardım süreci</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-icon">♡</span><div><strong>Merhamet merkezli</strong><small>İnsanı ve onurunu önceleyen yaklaşım</small></div></div>
+        <div class="trust-item"><span class="trust-icon">◇</span><div><strong>Şeffaf süreç</strong><small>Belgeli, izlenebilir ve hesap verebilir</small></div></div>
+        <div class="trust-item"><span class="trust-icon">∞</span><div><strong>Gönüllülük ruhu</strong><small>İyiliği birlikte çoğaltan topluluk</small></div></div>
+      </div>
+    </div>
+
+    <section class="section" id="hakkimizda">
+      <div class="container about-grid">
+        <div class="about-art">
+          <div class="about-panel"></div>
+          <div class="about-badge"><strong>Birlik</strong><small>Kardeşlik, dayanışma ve gönüllülük</small></div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">Hakkımızda</span>
+          <h2>Manevi mirastan toplumsal faydaya.</h2>
+          <p class="lead">Resmî adıyla Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği; manevi, ahlaki, kültürel ve sosyal değerleri yaşatmak, dayanışmayı güçlendirmek amacıyla Sarıyer’de faaliyet göstermek üzere kurulmuştur.</p>
+          <div class="value-list">
+            <div class="value"><span class="value-num">01</span><div><h3>Manevi ve kültürel değerler</h3><p>Ortak mirasımızı doğru kaynaklar ve kapsayıcı bir dille gelecek kuşaklara aktarmak.</p></div></div>
+            <div class="value"><span class="value-num">02</span><div><h3>Toplumsal dayanışma</h3><p>Gıda, giyim, barınma, eğitim ve sağlık alanlarında ihtiyaç sahiplerine destek olmak.</p></div></div>
+            <div class="value"><span class="value-num">03</span><div><h3>Aile ve sosyal destek</h3><p>Çocuk, genç, kadın, yaşlı, engelli ve dezavantajlı bireylerin yanında durmak.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section activities" id="faaliyetler">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Faaliyet alanlarımız</span><h2>İyiliğin farklı hâlleri.</h2></div>
+          <p class="lead">Tüzüğümüzde yer alan amaçları, düzenli ve ölçülebilir çalışmalarla toplumsal faydaya dönüştürüyoruz.</p>
+        </div>
+        <div class="cards">
+          <article class="activity-card"><span class="card-icon">♡</span><h3>Sosyal yardımlar</h3><p>Gıda kolisi, sıcak yemek, giyim, barınma, eğitim ve sağlık destekleri.</p><a href="#destek">Süreci incele →</a></article>
+          <article class="activity-card"><span class="card-icon">✦</span><h3>Eğitim & gençlik</h3><p>Değerler eğitimi, rehberlik, burs ve gençlerin gelişimini destekleyen programlar.</p><a href="#takvim">Programları gör →</a></article>
+          <article class="activity-card"><span class="card-icon">☾</span><h3>Manevi programlar</h3><p>Sohbetler, okumalar, seminerler ve kültürel buluşmalar.</p><a href="#bilgi">İçerikleri keşfet →</a></article>
+          <article class="activity-card"><span class="card-icon">⌂</span><h3>Aile desteği</h3><p>Aileyi güçlendiren, korunmaya ihtiyaç duyan bireylere yönelik sosyal çalışmalar.</p><a href="#iletisim">Bilgi al →</a></article>
+          <article class="activity-card"><span class="card-icon">◈</span><h3>Kültürel miras</h3><p>Manevi ve kültürel mirası tanıtan yayın, etkinlik ve koruma faaliyetleri.</p><a href="#bilgi">Detayları gör →</a></article>
+          <article class="activity-card"><span class="card-icon">⟡</span><h3>Afet & acil destek</h3><p>İzinler ve koordinasyon çerçevesinde acil ihtiyaçlara hızlı dayanışma.</p><a href="#destek">Destek ol →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section impact">
+      <div class="container">
+        <span class="eyebrow">Etki alanı</span>
+        <h2>Rakamların arkasında insanlar var.</h2>
+        <p class="lead">Faaliyet verileri doğrulandıktan sonra bu alanda düzenli olarak yayımlanacaktır.</p>
+        <div class="impact-grid">
+          <div class="impact-card"><strong>—</strong><span>Ulaşılan hane</span></div>
+          <div class="impact-card"><strong>—</strong><span>Dağıtılan yardım</span></div>
+          <div class="impact-card"><strong>—</strong><span>Aktif gönüllü</span></div>
+          <div class="impact-card"><strong>—</strong><span>Düzenlenen program</span></div>
+        </div>
+        <p class="impact-note">* Kesinleşmemiş sayı paylaşmıyoruz. Veriler faaliyet raporlarıyla birlikte güncellenecektir.</p>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="container">
+        <div class="quote-mark">“</div>
+        <blockquote>Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin.</blockquote>
+        <cite>Hucurât Suresi · 10. Ayet</cite>
+      </div>
+    </section>
+
+    <section class="section" id="bilgi">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Dini bilgiler</span><h2>Kaynağı belli, dili sade.</h2></div>
+          <p class="lead">İçerikler yayına alınmadan önce kaynak kontrolünden geçirilir; dinî bilgilendirme ile kişisel kanaat birbirinden ayrılır.</p>
+        </div>
+        <div class="knowledge-grid">
+          <article class="featured-article">
+            <span class="tag">Haftanın konusu</span>
+            <h3>Yardımlaşma ahlâkı ve insan onuru</h3>
+            <p>Yardımı gösteriye dönüştürmeden, ihtiyaç sahibinin mahremiyetini koruyarak iyiliği çoğaltmak üzerine bir okuma.</p>
+          </article>
+          <div class="article-list">
+            <article class="article-card"><span class="article-no">01</span><div><h3>Komşuluk ve emanet bilinci</h3><p>Günlük hayatta sorumluluk, güven ve güzel muamele.</p></div></article>
+            <article class="article-card"><span class="article-no">02</span><div><h3>Paylaşmanın bereketi</h3><p>Sadaka, infak ve gönüllülük kavramlarına giriş.</p></div></article>
+            <article class="article-card"><span class="article-no">03</span><div><h3>Ailede merhamet dili</h3><p>İletişimde nezaket, sabır ve karşılıklı haklar.</p></div></article>
+            <article class="article-card"><span class="article-no">04</span><div><h3>Kaynak politikamız</h3><p>Ayet, hadis ve alıntıların kaynaklandırılmasına ilişkin yayın ilkeleri.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section calendar" id="takvim">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Etkinlik takvimi</span><h2>Birlikte öğrenelim.</h2></div>
+          <p class="lead">Tarih ve mekânı kesinleşen programlar burada duyurulacaktır.</p>
+        </div>
+        <div class="event-layout">
+          <article class="event-card">
+            <div class="event-date"><strong>—</strong><span>Yakında</span></div>
+            <div class="event-copy"><h3>Manevi sohbet ve dayanışma buluşması</h3><p>Program içeriği, konuşmacı, tarih ve katılım bilgileri yönetim tarafından kesinleştirildiğinde yayımlanacaktır.</p><div class="event-meta"><span>◷ Saat: Duyurulacak</span><span>⌖ Sarıyer / İstanbul</span></div></div>
+          </article>
+          <aside class="notice-card"><h3>Duyurulardan haberdar olun.</h3><p>Resmî iletişim kanalları belirlendiğinde e-posta ve sosyal medya bağlantıları bu alana eklenecek.</p><span class="status-pill">İletişim kanalları hazırlanıyor</span></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section support" id="destek">
+      <div class="container">
+        <span class="eyebrow">Dayanışmaya katıl</span>
+        <h2>İyiliğe ayırdığınız her katkı kıymetli.</h2>
+        <p class="lead">Gönüllü olarak zamanınızı paylaşabilir veya resmî yardım kanalları ilan edildiğinde çalışmalarımıza destek olabilirsiniz.</p>
+        <div class="support-grid">
+          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Saha ve dağıtım desteği</li><li>Eğitim ve organizasyon katkısı</li><li>İletişim ve içerik desteği</li></ul><button class="btn btn-gold disabled-btn" disabled>Başvuru formu yakında</button></article>
+          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><button class="btn btn-ghost disabled-btn" disabled>İletişim bilgisi bekleniyor</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="seffaflik">
+      <div class="container transparency-grid">
+        <div>
+          <span class="eyebrow">Şeffaflık</span>
+          <h2>Güven, açık bilgiyle güçlenir.</h2>
+          <p class="lead">Yardım, gönüllü ve bağışçı kayıtlarını mevzuata uygun biçimde tutmayı; faaliyet ve dağıtım sonuçlarını raporlamayı esas alıyoruz.</p>
+          <div class="report-list">
+            <div class="report"><span>Faaliyet raporu</span><small>Hazırlanıyor</small></div>
+            <div class="report"><span>Yardım dağıtım özeti</span><small>Hazırlanıyor</small></div>
+            <div class="report"><span>KVKK bilgilendirmesi</span><small>Hazırlanıyor</small></div>
+          </div>
+        </div>
+        <aside class="transparency-art">
+          <h3>Yardım sürecimiz</h3>
+          <p>Her başvuru aynı temel adımlarla, insan onuruna ve mahremiyete saygı içinde değerlendirilir.</p>
+          <div class="process">
+            <div class="process-item"><b>1</b><div><strong>Başvuru</strong><small>Temel ihtiyaç ve iletişim bilgilerinin alınması</small></div></div>
+            <div class="process-item"><b>2</b><div><strong>Değerlendirme</strong><small>Belge ve gerektiğinde saha incelemesi</small></div></div>
+            <div class="process-item"><b>3</b><div><strong>Destek</strong><small>Uygun yardımın güvenli biçimde ulaştırılması</small></div></div>
+            <div class="process-item"><b>4</b><div><strong>Raporlama</strong><small>Kayıt, izleme ve sonuçların raporlanması</small></div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section gallery" id="galeri">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Faaliyetlerden</span><h2>İyilikten kareler.</h2></div>
+          <p class="lead">Gerçek faaliyet fotoğrafları, açık rıza ve mahremiyet kontrollerinin ardından bu alanda paylaşılacaktır.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-label="Yardımlaşma çalışmaları"><span>♡</span></div>
+          <div class="gallery-item" data-label="Gönüllü buluşmaları"><span>∞</span></div>
+          <div class="gallery-item" data-label="Eğitim programları"><span>✦</span></div>
+          <div class="gallery-item" data-label="Kültürel etkinlikler"><span>◈</span></div>
+          <div class="gallery-item" data-label="Saha faaliyetleri"><span>◇</span></div>
+        </div>
+        <p class="gallery-note">Not: İhtiyaç sahiplerinin yüzleri ve kişisel bilgileri izinsiz yayımlanmayacaktır.</p>
+      </div>
+    </section>
+
+    <section class="section" id="sss">
+      <div class="container faq-grid">
+        <div><span class="eyebrow">Sık sorulanlar</span><h2>Merak ettikleriniz.</h2><p class="lead">Derneğimizin işleyişi ve katılım yolları hakkında kısa bilgiler.</p></div>
+        <div class="faq-list">
+          <div class="faq-item open"><button class="faq-question"><span>Derneğin merkezi nerededir?</span><span>+</span></button><div class="faq-answer">Derneğin merkezi Sarıyer / İstanbul’dur. Açık adres, resmî iletişim bilgileri kesinleştirildiğinde yayımlanacaktır.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Yardım başvuruları nasıl değerlendirilir?</span><span>+</span></button><div class="faq-answer">Başvurular belge incelemesi ve gerektiğinde saha değerlendirmesiyle, kişisel veriler korunarak ele alınır.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Üye olmadan gönüllü olabilir miyim?</span><span>+</span></button><div class="faq-answer">Evet. Uygun faaliyetlerde görev almak için dernek üyeliği zorunlu değildir.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Nasıl maddi destek sağlayabilirim?</span><span>+</span></button><div class="faq-answer">Yalnızca dernek tarafından ilan edilen resmî hesap ve iletişim kanalları kullanılmalıdır. Bu bilgiler henüz siteye eklenmemiştir.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Dernek üyeliği nasıl gerçekleşir?</span><span>+</span></button><div class="faq-answer">Yazılı başvuru yönetim kurulunca tüzük hükümlerine göre değerlendirilir.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Kişisel veriler nasıl korunur?</span><span>+</span></button><div class="faq-answer">Yardım alan, gönüllü ve bağışçılara ait bilgiler yalnızca yetkili kişilerce, ilgili mevzuat ve açık rıza esaslarına göre işlenir.</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact" id="iletisim">
+    <div class="container">
+      <div class="contact-card">
+        <div><span class="eyebrow">İletişim</span><h2>Kapımız iyiliğe açık.</h2><p>Resmî iletişim kanalları onaylandığında burada yayımlanacaktır.</p></div>
+        <div class="contact-info">
+          <div><span>Merkez</span><strong>Sarıyer / İstanbul</strong></div>
+          <div><span>Telefon</span><strong>Yakında</strong></div>
+          <div><span>E-posta</span><strong>Yakında</strong></div>
+          <div><span>Sosyal medya</span><strong>Yakında</strong></div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-inner">
+          <span>© 2026 Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği</span>
+          <div class="footer-links"><a href="#seffaflik">Şeffaflık</a><a href="#sss">SSS</a><a href="#anasayfa">Yukarı çık ↑</a></div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('menu-open', open);
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }));
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) other.classList.remove('open');
+        });
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
