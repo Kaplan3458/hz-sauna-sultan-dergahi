@@ -1,9 +1,12 @@
-# Hz. Sauna Sultan Dergâhı — GitHub Pages V3
+# Hz. Sauna Sultan Dergâhı — GitHub Pages V4
 
 Bu paket, **Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği**
 internet sitesinin örnek içeriklerle zenginleştirilmiş GitHub Pages sürümüdür.
 Bu sürümde `hzsaunasultan.com` alan adı, aktif yardım e-postası ve
 telefon/WhatsApp bağlantıları siteye eklenmiştir.
+Faaliyet galerisi, çağdaş günlük giyimli kadın ve erkek gönüllülerin yer aldığı
+yeni temsili görsellerle yenilenmiş; “manevi sohbet” daveti yardım ve
+gönüllülük duyurularıyla değiştirilmiştir.
 
 ## Paketteki dosyalar
 
@@ -58,6 +61,9 @@ Site adresiniz aşağıdaki biçimde olacaktır:
   faaliyet kayıtlarıyla değiştirilmelidir.
 - Galerideki görseller yapay zekâ ile üretilmiş temsili sahnelerdir ve site
   üzerinde bu şekilde etiketlenmiştir.
+- Galeride kullanılan dosyalar `yardim-paketleme.webp`,
+  `gonullu-koordinasyonu.webp` ve `egitim-destegi.webp` adlarıyla `assets`
+  klasöründe bulunmalıdır.
 - Kur’an Rehberi halka açık yayımlanmadan önce veri setindeki her meal için
   kullanım ve yeniden yayımlama izinleri kontrol edilmelidir.
 - İhtiyaç sahiplerine ait fotoğraflar, açık rıza ve mahremiyet kontrolü
