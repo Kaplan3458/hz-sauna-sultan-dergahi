@@ -35,6 +35,8 @@
 - [ ] `assets` klasörü klasör yapısı korunarak yüklendi.
 - [ ] `index.html`, `kuran-rehberi.html` ve `turbe-rehberi.html` açıldı.
 - [ ] Mobil menü, WhatsApp, e-posta ve yol tarifi bağlantıları test edildi.
+- [ ] Gönüllü formu masaüstü ve telefonda açıldı; zorunlu alanlar ve WhatsApp
+      mesajı kontrol edildi.
 - [ ] Repository içinde eski bir `CNAME` dosyası bulunmadığı kontrol edildi.
 - [ ] GitHub Pages **Custom domain** alanının boş olduğu kontrol edildi.
 - [ ] Site `https://KULLANICI-ADINIZ.github.io/hz-sauna-sultan-dergahi/`

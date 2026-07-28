@@ -129,6 +129,7 @@
     }
     .nav-cta { color: var(--forest-deep) !important; background: var(--gold-pale); }
     .nav-cta:hover, .btn:hover { transform: translateY(-2px); }
+    .btn { cursor: pointer; }
     .menu-btn {
       display: none;
       width: 44px; height: 44px;
@@ -241,6 +242,7 @@
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
     .quick-card:hover { transform: translateY(-4px); border-color: rgba(196,154,82,.55); box-shadow: var(--shadow); }
+    button.quick-card { width: 100%; color: inherit; text-align: left; cursor: pointer; }
     .quick-card b { width: 52px; height: 52px; display: grid; place-items: center; color: var(--forest); background: var(--forest-soft); border-radius: 16px; font-size: 1.25rem; }
     .quick-card h3 { color: var(--forest-deep); font-size: 1.35rem; }
     .quick-card p { margin-top: 8px; color: var(--muted); font-size: .82rem; }
@@ -578,6 +580,103 @@
       font-size: .8rem;
       font-weight: 700;
     }
+    .volunteer-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(3,18,14,.8);
+      backdrop-filter: blur(10px);
+    }
+    .volunteer-modal[hidden] { display: none; }
+    .volunteer-dialog {
+      position: relative;
+      width: min(760px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      padding: 38px;
+      color: var(--ink);
+      border: 1px solid rgba(196,154,82,.28);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: 0 30px 100px rgba(0,0,0,.34);
+    }
+    .volunteer-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--forest);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--cream);
+      cursor: pointer;
+      font-size: 1.45rem;
+    }
+    .volunteer-heading { padding-right: 55px; }
+    .volunteer-heading h2 { margin-top: 12px; font-size: clamp(2rem, 5vw, 3.2rem); }
+    .volunteer-heading p { margin-top: 12px; color: var(--muted); font-size: .9rem; }
+    .volunteer-form { margin-top: 30px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-field { display: grid; gap: 8px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label, .form-label { color: var(--forest-deep); font-size: .79rem; font-weight: 700; }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      color: var(--ink);
+      border: 1px solid rgba(18,63,50,.18);
+      border-radius: 13px;
+      outline: none;
+      background: white;
+    }
+    .form-field textarea { min-height: 104px; resize: vertical; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(196,154,82,.15);
+    }
+    .interest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+    .interest-option {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 12px;
+      color: var(--forest);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--cream);
+      font-size: .78rem;
+      cursor: pointer;
+    }
+    .interest-option input {
+      width: 17px;
+      height: 17px;
+      min-height: 0;
+      flex: 0 0 auto;
+      padding: 0;
+      accent-color: var(--forest);
+    }
+    .consent-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      gap: 10px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: .74rem;
+    }
+    .consent-row input { margin-top: 4px; accent-color: var(--forest); }
+    .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 24px; }
+    .form-actions .btn { min-width: 210px; }
+    .form-actions a { color: var(--forest); font-size: .78rem; font-weight: 700; }
+    .form-note { margin-top: 14px; color: var(--muted); font-size: .7rem; }
+    .form-status { min-height: 22px; margin-top: 10px; color: var(--forest); font-size: .78rem; font-weight: 700; }
     .lightbox {
       position: fixed;
       inset: 0;
@@ -652,6 +751,11 @@
       .contact-card { padding: 32px 25px; }
       .contact-info { min-width: 0; }
       .contact-info div { flex-direction: column; gap: 4px; }
+      .volunteer-modal { padding: 10px; }
+      .volunteer-dialog { max-height: calc(100vh - 20px); padding: 30px 20px; border-radius: 22px; }
+      .form-grid, .interest-grid { grid-template-columns: 1fr; }
+      .form-actions { align-items: stretch; flex-direction: column; }
+      .form-actions .btn { width: 100%; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
       .whatsapp-float { width: 52px; padding: 0; justify-content: center; }
       .whatsapp-float span { display: none; }
@@ -726,7 +830,7 @@
     <section class="quick-actions" aria-label="Hızlı işlemler">
       <div class="container quick-grid">
         <a class="quick-card" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20talebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><b>♡</b><div><h3>Yardım talebi</h3><p>İlk iletişimi WhatsApp üzerinden kurun; ihtiyaç değerlendirmesi için ekibimiz size dönüş yapsın.</p><span>İletişime geç →</span></div></a>
-        <a class="quick-card" href="mailto:yardim@hzsaunasultan.com?subject=G%C3%B6n%C3%BCll%C3%BC%20Ba%C5%9Fvurusu"><b>✦</b><div><h3>Gönüllü olun</h3><p>Zamanınıza ve becerilerinize uygun yardım, eğitim, organizasyon veya içerik çalışmalarına katılın.</p><span>Başvuru gönder →</span></div></a>
+        <button class="quick-card volunteer-form-trigger" type="button"><b>✦</b><div><h3>Gönüllü olun</h3><p>Zamanınıza ve becerilerinize uygun yardım, eğitim, organizasyon veya içerik çalışmalarına katılın.</p><span>Formu aç →</span></div></button>
         <a class="quick-card" href="turbe-rehberi.html"><b>⌖</b><div><h3>Türbe Rehberi</h3><p>29 ziyaret noktasını isim, şehir veya ilçeye göre arayın ve doğrudan yol tarifi alın.</p><span>Rehberi aç →</span></div></a>
       </div>
     </section>
@@ -871,7 +975,7 @@
         <h2>İyiliğe ayırdığınız her katkı kıymetli.</h2>
         <p class="lead">Gönüllü olarak zamanınızı paylaşabilir, yardım talebi veya faaliyet bilgisi için doğrudan bize ulaşabilirsiniz.</p>
         <div class="support-grid">
-          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Yardım paketleme</li><li>Saha ve dağıtım desteği</li><li>Eğitim faaliyetleri</li><li>Organizasyon ve ulaşım</li><li>Fotoğraf ve içerik</li><li>İletişim desteği</li></ul><a class="btn btn-gold support-action" href="mailto:yardim@hzsaunasultan.com?subject=G%C3%B6n%C3%BCll%C3%BC%20Ba%C5%9Fvurusu">E-posta ile gönüllü ol</a></article>
+          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Yardım paketleme</li><li>Saha ve dağıtım desteği</li><li>Eğitim faaliyetleri</li><li>Organizasyon ve ulaşım</li><li>Fotoğraf ve içerik</li><li>İletişim desteği</li></ul><button class="btn btn-gold support-action volunteer-form-trigger" type="button">Gönüllü başvuru formunu aç</button></article>
           <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><a class="btn btn-ghost support-action" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20ba%C5%9Fvurusu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan ulaş</a></article>
         </div>
       </div>
@@ -945,7 +1049,6 @@
           <div><span>Telefon</span><a href="tel:+905304589383">+90 530 458 93 83</a></div>
           <div><span>WhatsApp</span><a href="https://wa.me/905304589383" target="_blank" rel="noopener">WhatsApp’tan yazın</a></div>
           <div><span>E-posta</span><a href="mailto:yardim@hzsaunasultan.com">yardim@hzsaunasultan.com</a></div>
-          <div><span>Yayın</span><strong>GitHub Pages</strong></div>
         </div>
       </div>
       <footer>
@@ -958,6 +1061,72 @@
   </section>
 
   <a class="whatsapp-float" href="https://wa.me/905304589383" target="_blank" rel="noopener" aria-label="WhatsApp üzerinden iletişime geç"><b>✆</b><span>WhatsApp</span></a>
+  <div class="volunteer-modal" id="volunteerModal" role="dialog" aria-modal="true" aria-labelledby="volunteerTitle" hidden>
+    <div class="volunteer-dialog">
+      <button class="volunteer-close" type="button" aria-label="Gönüllü formunu kapat">×</button>
+      <div class="volunteer-heading">
+        <span class="eyebrow">Gönüllü başvurusu</span>
+        <h2 id="volunteerTitle">İyiliği birlikte büyütelim.</h2>
+        <p>Formu doldurduğunuzda başvuru bilgileriniz hazır bir WhatsApp mesajına dönüştürülür. Mesajı kontrol edip kendi onayınızla gönderebilirsiniz.</p>
+      </div>
+      <form class="volunteer-form" id="volunteerForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="volunteerName">Ad soyad *</label>
+            <input id="volunteerName" name="name" type="text" autocomplete="name" maxlength="80" required>
+          </div>
+          <div class="form-field">
+            <label for="volunteerPhone">Telefon *</label>
+            <input id="volunteerPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" placeholder="05xx xxx xx xx" required>
+          </div>
+          <div class="form-field">
+            <label for="volunteerCity">Şehir / ilçe *</label>
+            <input id="volunteerCity" name="city" type="text" autocomplete="address-level2" maxlength="80" required>
+          </div>
+          <div class="form-field">
+            <label for="volunteerEmail">E-posta</label>
+            <input id="volunteerEmail" name="email" type="email" autocomplete="email" maxlength="100" placeholder="İsteğe bağlı">
+          </div>
+          <div class="form-field full">
+            <span class="form-label">Katkı sunmak istediğiniz alanlar</span>
+            <div class="interest-grid">
+              <label class="interest-option"><input type="checkbox" name="area" value="Yardım paketleme"> Yardım paketleme</label>
+              <label class="interest-option"><input type="checkbox" name="area" value="Saha ve dağıtım"> Saha ve dağıtım</label>
+              <label class="interest-option"><input type="checkbox" name="area" value="Eğitim faaliyetleri"> Eğitim faaliyetleri</label>
+              <label class="interest-option"><input type="checkbox" name="area" value="Organizasyon ve ulaşım"> Organizasyon ve ulaşım</label>
+              <label class="interest-option"><input type="checkbox" name="area" value="Fotoğraf ve içerik"> Fotoğraf ve içerik</label>
+              <label class="interest-option"><input type="checkbox" name="area" value="İletişim desteği"> İletişim desteği</label>
+            </div>
+          </div>
+          <div class="form-field full">
+            <label for="volunteerAvailability">Uygunluk durumu *</label>
+            <select id="volunteerAvailability" name="availability" required>
+              <option value="">Seçiniz</option>
+              <option>Hafta içi gündüz</option>
+              <option>Hafta içi akşam</option>
+              <option>Hafta sonu</option>
+              <option>Faaliyete göre değişebilir</option>
+              <option>Uzaktan destek verebilirim</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="volunteerNote">Kendinizden ve katkınızdan kısaca bahsedin</label>
+            <textarea id="volunteerNote" name="note" maxlength="500" placeholder="Deneyiminiz, becerileriniz veya eklemek istediğiniz kısa not…"></textarea>
+          </div>
+        </div>
+        <label class="consent-row">
+          <input type="checkbox" name="consent" required>
+          <span>Başvuru bilgilerimin gönüllülük iletişimi amacıyla kullanılmasını ve WhatsApp mesajına aktarılmasını kabul ediyorum. *</span>
+        </label>
+        <div class="form-actions">
+          <button class="btn btn-gold" type="submit">WhatsApp ile başvuruyu gönder</button>
+          <a href="mailto:yardim@hzsaunasultan.com?subject=G%C3%B6n%C3%BCll%C3%BC%20Ba%C5%9Fvurusu">E-posta kullanmayı tercih ediyorum</a>
+        </div>
+        <p class="form-note">Bu form bilgilerinizi internet sitesinde kaydetmez. Gönderim, cihazınızda açılan WhatsApp üzerinden sizin onayınızla gerçekleşir.</p>
+        <p class="form-status" id="volunteerStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Büyütülmüş faaliyet görseli">
     <button class="lightbox-close" type="button" aria-label="Görseli kapat">×</button>
     <figure><img src="" alt=""><figcaption></figcaption></figure>
@@ -1019,6 +1188,64 @@
       window.setInterval(() => showVerse((activeVerse + 1) % verses.length), 8000);
     }
 
+    const volunteerModal = document.getElementById('volunteerModal');
+    const volunteerDialog = volunteerModal.querySelector('.volunteer-dialog');
+    const volunteerClose = volunteerModal.querySelector('.volunteer-close');
+    const volunteerForm = document.getElementById('volunteerForm');
+    const volunteerStatus = document.getElementById('volunteerStatus');
+    const volunteerTriggers = [...document.querySelectorAll('.volunteer-form-trigger')];
+    let lastVolunteerTrigger = null;
+
+    function openVolunteerForm(trigger) {
+      lastVolunteerTrigger = trigger;
+      volunteerModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      window.setTimeout(() => document.getElementById('volunteerName').focus(), 0);
+    }
+    function closeVolunteerForm() {
+      volunteerModal.hidden = true;
+      document.body.style.overflow = '';
+      volunteerStatus.textContent = '';
+      if (lastVolunteerTrigger) lastVolunteerTrigger.focus();
+    }
+    volunteerTriggers.forEach(trigger => trigger.addEventListener('click', () => openVolunteerForm(trigger)));
+    volunteerClose.addEventListener('click', closeVolunteerForm);
+    volunteerModal.addEventListener('click', event => {
+      if (event.target === volunteerModal) closeVolunteerForm();
+    });
+    volunteerDialog.addEventListener('keydown', event => {
+      if (event.key !== 'Tab') return;
+      const focusable = [...volunteerDialog.querySelectorAll('button, input, select, textarea, a[href]')]
+        .filter(element => !element.disabled && element.offsetParent !== null);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    volunteerForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(volunteerForm);
+      const areas = data.getAll('area');
+      const message = [
+        'Merhaba, gönüllü başvurusu yapmak istiyorum.',
+        '',
+        `Ad soyad: ${data.get('name')}`,
+        `Telefon: ${data.get('phone')}`,
+        `Şehir / ilçe: ${data.get('city')}`,
+        `E-posta: ${data.get('email') || 'Belirtilmedi'}`,
+        `Katkı alanları: ${areas.length ? areas.join(', ') : 'Henüz seçilmedi'}`,
+        `Uygunluk: ${data.get('availability')}`,
+        `Kısa not: ${data.get('note') || 'Belirtilmedi'}`
+      ].join('\n');
+      volunteerStatus.textContent = 'Başvurunuz hazırlandı; WhatsApp açılıyor…';
+      window.open(`https://wa.me/905304589383?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+    });
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = lightbox.querySelector('img');
     const lightboxCaption = lightbox.querySelector('figcaption');
@@ -1053,7 +1280,11 @@
       if (event.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      if (event.key === 'Escape' && !volunteerModal.hidden) {
+        closeVolunteerForm();
+      } else if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
     });
   </script>
 </body>

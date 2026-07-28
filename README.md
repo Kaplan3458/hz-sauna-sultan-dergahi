@@ -1,4 +1,4 @@
-# Hz. Sauna Sultan Dergâhı — GitHub Pages V5.1
+# Hz. Sauna Sultan Dergâhı — GitHub Pages V5.2
 
 Bu paket, **Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği**
 internet sitesinin örnek içeriklerle zenginleştirilmiş GitHub Pages sürümüdür.
@@ -9,6 +9,9 @@ Bu sürümde ana sayfa daha işlevsel hâle getirilmiş; 29 ziyaret noktasına a
 aranabilir Türbe Rehberi, hızlı işlem kartları, sabit WhatsApp bağlantısı,
 faaliyet arşivi altyapısı, yeni marka işareti, sosyal paylaşım görseli ve
 GitHub Pages teknik dosyaları eklenmiştir.
+Gönüllülük bağlantıları, site içinde açılan ve başvuru bilgilerini kullanıcının
+onayıyla hazır bir WhatsApp mesajına dönüştüren forma bağlanmıştır. Form,
+GitHub Pages üzerinde herhangi bir kişisel veriyi kaydetmez.
 
 ## Paketteki dosyalar
 
@@ -74,6 +77,8 @@ alanını da boş bırakın. Böylece site GitHub uzantılı adresinde kalır.
 - Siteye `yardim@hzsaunasultan.com` adresi ve `+90 530 458 93 83`
   telefon/WhatsApp hattı eklenmiştir. Bu bilgiler değişirse `index.html`
   içindeki iletişim bağlantıları birlikte güncellenmelidir.
+- Gönüllü formu gönderildiğinde bilgiler `+90 530 458 93 83` numarasına
+  yönlendirilen hazır WhatsApp mesajına dönüştürülür; sitede veri saklanmaz.
 - Açık adres, sosyal medya ve resmî banka/bağış bilgileri kesinleştiğinde
   ilgili “Yakında” alanları güncellenmelidir.
 - Ana sayfadaki faaliyet sayıları örnek veridir; yayımdan önce doğrulanmış
