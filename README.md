@@ -1,9 +1,10 @@
-# Hz. Sauna Sultan Dergâhı — GitHub Pages V5
+# Hz. Sauna Sultan Dergâhı — GitHub Pages V5.1
 
 Bu paket, **Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği**
 internet sitesinin örnek içeriklerle zenginleştirilmiş GitHub Pages sürümüdür.
-Bu sürümde `hzsaunasultan.com` alan adı, aktif yardım e-postası ve
-telefon/WhatsApp bağlantıları siteye eklenmiştir.
+Bu sürüm, özel alan adı bağlanmadan doğrudan GitHub Pages adresinde çalışacak
+şekilde hazırlanmıştır. Aktif yardım e-postası ve telefon/WhatsApp bağlantıları
+siteye eklenmiştir.
 Bu sürümde ana sayfa daha işlevsel hâle getirilmiş; 29 ziyaret noktasına ait
 aranabilir Türbe Rehberi, hızlı işlem kartları, sabit WhatsApp bağlantısı,
 faaliyet arşivi altyapısı, yeni marka işareti, sosyal paylaşım görseli ve
@@ -21,8 +22,7 @@ GitHub Pages teknik dosyaları eklenmiştir.
 - `assets/logo-mark.svg`: Site logosu ve favicon
 - `assets/social-preview.png`: WhatsApp ve sosyal medya paylaşım görseli
 - `404.html`: Özel sayfa bulunamadı ekranı
-- `CNAME`: `hzsaunasultan.com` özel alan adı ayarı
-- `sitemap.xml`, `robots.txt`, `site.webmanifest`: SEO ve mobil web uygulaması dosyaları
+- `robots.txt`, `site.webmanifest`: Arama motoru ve mobil web uygulaması dosyaları
 - `GORSEL-PROMPTLARI.md`: Temsili görsellerin üretim notları ve promptları
 - `TURBE-REHBERI-VERI-NOTU.md`: Rehber verilerinin yayın ve doğrulama notları
 - `YAYIN-ONCESI-KONTROL-LISTESI.md`: Yayından önce yapılması gereken kontroller
@@ -56,11 +56,17 @@ Site adresiniz aşağıdaki biçimde olacaktır:
 
 `https://KULLANICI-ADINIZ.github.io/hz-sauna-sultan-dergahi/`
 
+Bu pakette `CNAME` dosyası yoktur. GitHub Pages ayarlarındaki **Custom domain**
+alanını da boş bırakın. Böylece site GitHub uzantılı adresinde kalır.
+
 ## Önemli
 
 - ZIP dosyasını repository'ye tek parça olarak yüklemeyin; önce bilgisayarınızda
   açıp içindeki dosyaları yükleyin.
 - `index.html` mutlaka repository'nin ana dizininde bulunmalıdır.
+- Eski yüklemede `CNAME` dosyası bulunuyorsa repository içinden silin.
+- **Settings → Pages → Custom domain** alanında `hzsaunasultan.com` yazıyorsa
+  kaldırıp kaydedin.
 - `assets` klasörünü ve `quran-data.js` dosyasını atlamayın; aksi hâlde
   görseller veya Kur’an Rehberi çalışmaz.
 - `turbe-data.js` dosyasını ve `assets/turbeler` klasörünü atlamayın; aksi
