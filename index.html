@@ -307,6 +307,22 @@
     .impact .container { position: relative; }
     .impact h2 { color: white; }
     .impact .lead { color: rgba(255,255,255,.64); }
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 8px 12px;
+      color: var(--gold-pale);
+      border: 1px solid rgba(239,224,188,.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .demo-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
     .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; }
     .impact-card { padding: 30px 26px; border: 1px solid rgba(255,255,255,.13); border-radius: 22px; background: rgba(255,255,255,.04); }
     .impact-card strong { display: block; color: var(--gold-pale); font-family: "Playfair Display", serif; font-size: 2.1rem; }
@@ -317,6 +333,18 @@
     .quote-mark { color: var(--gold); font-family: Georgia, serif; font-size: 5rem; line-height: .7; }
     blockquote { max-width: 900px; margin: 26px auto 0; color: var(--forest-deep); font-family: "Playfair Display", serif; font-size: clamp(1.8rem, 3.8vw, 3.1rem); line-height: 1.3; }
     cite { display: block; margin-top: 24px; color: var(--muted); font-style: normal; font-size: .82rem; letter-spacing: .11em; text-transform: uppercase; }
+    .quote-meta { margin-top: 10px; color: var(--muted); font-size: .74rem; }
+    .quote-controls { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+    .quote-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(18,63,50,.2);
+      cursor: pointer;
+    }
+    .quote-dot.active { background: var(--gold); transform: scale(1.2); }
 
     .knowledge-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: stretch; }
     .featured-article {
@@ -333,6 +361,16 @@
     .article-no { width: 58px; height: 58px; display: grid; place-items: center; color: var(--gold); border-radius: 16px; background: var(--cream); font-family: "Playfair Display", serif; font-size: 1.3rem; }
     .article-card h3 { font-family: "DM Sans", sans-serif; color: var(--forest); font-size: 1rem; }
     .article-card p { margin-top: 6px; color: var(--muted); font-size: .83rem; }
+    .quran-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+      color: var(--gold-pale);
+      font-weight: 700;
+      font-size: .88rem;
+    }
+    .verse-source { display: inline-block; margin-bottom: 4px; color: var(--gold); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 
     .calendar { background: var(--cream); }
     .event-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; }
@@ -361,7 +399,7 @@
     .support-card ul { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
     .support-card li { display: flex; gap: 11px; color: rgba(255,255,255,.8); font-size: .86rem; }
     .support-card li::before { content: "✓"; color: var(--gold-pale); }
-    .disabled-btn { width: 100%; margin-top: 28px; opacity: .8; cursor: not-allowed; }
+    .support-action { width: 100%; margin-top: 28px; }
 
     .transparency-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
     .report-list { display: grid; gap: 13px; margin-top: 30px; }
@@ -383,21 +421,44 @@
       position: relative;
       overflow: hidden;
       border-radius: 24px;
-      background:
-        linear-gradient(135deg, rgba(9,42,34,.72), rgba(18,63,50,.32)),
-        repeating-linear-gradient(45deg, #c9d6ce 0 12px, #dae2dc 12px 24px);
+      background: var(--forest);
     }
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent 35%, rgba(9,42,34,.8) 100%);
+    }
+    .gallery-item img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s ease; }
+    .gallery-item:hover img { transform: scale(1.035); }
     .gallery-item:first-child { grid-row: 1 / 3; }
     .gallery-item::after {
       content: attr(data-label);
       position: absolute; left: 22px; right: 22px; bottom: 20px;
+      z-index: 2;
       padding-top: 16px;
       color: white;
       border-top: 1px solid rgba(255,255,255,.34);
       font-weight: 700;
       font-size: .87rem;
     }
-    .gallery-item span { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.65); font-size: 2.3rem; }
+    .ai-label {
+      position: absolute;
+      z-index: 3;
+      top: 16px;
+      right: 16px;
+      padding: 6px 9px;
+      color: white;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 999px;
+      background: rgba(9,42,34,.68);
+      backdrop-filter: blur(8px);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
     .gallery-note { margin-top: 18px; color: var(--muted); font-size: .78rem; }
 
     .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; }
@@ -443,6 +504,7 @@
     .contact-info div { display: flex; justify-content: space-between; gap: 30px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: .83rem; }
     .contact-info span { color: rgba(255,255,255,.5); }
     .contact-info strong { color: var(--gold-pale); font-weight: 600; }
+    .contact-info a { color: var(--gold-pale); font-weight: 600; word-break: break-word; }
     footer { margin-top: 74px; padding: 35px 0; border-top: 1px solid rgba(255,255,255,.1); }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; color: rgba(255,255,255,.46); font-size: .73rem; }
     .footer-links { display: flex; gap: 20px; }
@@ -506,7 +568,7 @@
   <div class="topbar">
     <div class="container">
       <span>Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği</span>
-      <span class="topbar-note">Sarıyer · İstanbul</span>
+      <a class="topbar-note" href="tel:+905304589383">Yardım hattı · +90 530 458 93 83</a>
     </div>
   </div>
 
@@ -602,22 +664,30 @@
       <div class="container">
         <span class="eyebrow">Etki alanı</span>
         <h2>Rakamların arkasında insanlar var.</h2>
-        <p class="lead">Faaliyet verileri doğrulandıktan sonra bu alanda düzenli olarak yayımlanacaktır.</p>
+        <p class="lead">Aşağıdaki rakamlar, faaliyet raporları yayımlandığında bu alanın nasıl görüneceğini göstermek için hazırlanmış örnek değerlerdir.</p>
+        <span class="demo-badge">2026 · Tasarım amaçlı örnek veri</span>
         <div class="impact-grid">
-          <div class="impact-card"><strong>—</strong><span>Ulaşılan hane</span></div>
-          <div class="impact-card"><strong>—</strong><span>Dağıtılan yardım</span></div>
-          <div class="impact-card"><strong>—</strong><span>Aktif gönüllü</span></div>
-          <div class="impact-card"><strong>—</strong><span>Düzenlenen program</span></div>
+          <div class="impact-card"><strong>128</strong><span>Ulaşılan hane</span></div>
+          <div class="impact-card"><strong>1.240</strong><span>Sıcak yemek ve yardım paketi</span></div>
+          <div class="impact-card"><strong>47</strong><span>Aktif gönüllü</span></div>
+          <div class="impact-card"><strong>18</strong><span>Düzenlenen program</span></div>
         </div>
-        <p class="impact-note">* Kesinleşmemiş sayı paylaşmıyoruz. Veriler faaliyet raporlarıyla birlikte güncellenecektir.</p>
+        <p class="impact-note">* Bu sayılar gerçek faaliyet beyanı değildir. Site yayına alınmadan önce doğrulanmış dernek kayıtlarıyla değiştirilmelidir.</p>
       </div>
     </section>
 
     <section class="quote-section">
       <div class="container">
         <div class="quote-mark">“</div>
-        <blockquote>Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin.</blockquote>
-        <cite>Hucurât Suresi · 10. Ayet</cite>
+        <blockquote id="verseText">Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin ve Allah'tan korkun ki rahmete eresiniz.</blockquote>
+        <cite id="verseSource">Hucurât Suresi · 10. Ayet</cite>
+        <p class="quote-meta">Elmalılı Hamdi Yazır meali · Kur’an Rehberi veri setinden</p>
+        <div class="quote-controls" aria-label="Ayetler arasında geçiş">
+          <button class="quote-dot active" type="button" aria-label="1. ayeti göster"></button>
+          <button class="quote-dot" type="button" aria-label="2. ayeti göster"></button>
+          <button class="quote-dot" type="button" aria-label="3. ayeti göster"></button>
+          <button class="quote-dot" type="button" aria-label="4. ayeti göster"></button>
+        </div>
       </div>
     </section>
 
@@ -629,15 +699,16 @@
         </div>
         <div class="knowledge-grid">
           <article class="featured-article">
-            <span class="tag">Haftanın konusu</span>
-            <h3>Yardımlaşma ahlâkı ve insan onuru</h3>
-            <p>Yardımı gösteriye dönüştürmeden, ihtiyaç sahibinin mahremiyetini koruyarak iyiliği çoğaltmak üzerine bir okuma.</p>
+            <span class="tag">Kur’an’da yardımlaşma</span>
+            <h3>“Biz sizi ancak Allah rızası için doyuruyoruz.”</h3>
+            <p>İnsân Suresi 8–9. ayetler; yoksula, yetime ve ihtiyaç sahibine karşılık ya da teşekkür beklemeden ikram etmenin ahlâkını hatırlatır.</p>
+            <a class="quran-cta" href="kuran-rehberi.html">Kur’an Rehberi’nde ara <span>→</span></a>
           </article>
           <div class="article-list">
-            <article class="article-card"><span class="article-no">01</span><div><h3>Komşuluk ve emanet bilinci</h3><p>Günlük hayatta sorumluluk, güven ve güzel muamele.</p></div></article>
-            <article class="article-card"><span class="article-no">02</span><div><h3>Paylaşmanın bereketi</h3><p>Sadaka, infak ve gönüllülük kavramlarına giriş.</p></div></article>
-            <article class="article-card"><span class="article-no">03</span><div><h3>Ailede merhamet dili</h3><p>İletişimde nezaket, sabır ve karşılıklı haklar.</p></div></article>
-            <article class="article-card"><span class="article-no">04</span><div><h3>Kaynak politikamız</h3><p>Ayet, hadis ve alıntıların kaynaklandırılmasına ilişkin yayın ilkeleri.</p></div></article>
+            <article class="article-card"><span class="article-no">01</span><div><span class="verse-source">Âl-i İmrân · 3:92</span><h3>Sevdiğinizden paylaşmak</h3><p>“Sevdiğiniz şeylerden (Allah yolunda) harcamadıkça, gerçek iyiliğe asla erişemezsiniz.”</p></div></article>
+            <article class="article-card"><span class="article-no">02</span><div><span class="verse-source">Bakara · 2:261</span><h3>İnfakın bereketi</h3><p>Allah yolunda harcamanın, yedi başak veren bir taneye benzetildiği ayet.</p></div></article>
+            <article class="article-card"><span class="article-no">03</span><div><span class="verse-source">Mâûn · 107:2–3</span><h3>Yetime ve yoksula karşı sorumluluk</h3><p>Yetimi incitmemek ve yoksulu doyurmaya önayak olmak üzerine.</p></div></article>
+            <article class="article-card"><span class="article-no">04</span><div><span class="verse-source">Yayın ilkesi</span><h3>Kaynağı görünen içerik</h3><p>Her ayet, sure ve ayet numarasıyla; kullanılan meal bilgisi belirtilerek yayımlanır.</p></div></article>
           </div>
         </div>
       </div>
@@ -654,7 +725,7 @@
             <div class="event-date"><strong>—</strong><span>Yakında</span></div>
             <div class="event-copy"><h3>Manevi sohbet ve dayanışma buluşması</h3><p>Program içeriği, konuşmacı, tarih ve katılım bilgileri yönetim tarafından kesinleştirildiğinde yayımlanacaktır.</p><div class="event-meta"><span>◷ Saat: Duyurulacak</span><span>⌖ Sarıyer / İstanbul</span></div></div>
           </article>
-          <aside class="notice-card"><h3>Duyurulardan haberdar olun.</h3><p>Resmî iletişim kanalları belirlendiğinde e-posta ve sosyal medya bağlantıları bu alana eklenecek.</p><span class="status-pill">İletişim kanalları hazırlanıyor</span></aside>
+          <aside class="notice-card"><h3>Duyurulardan haberdar olun.</h3><p>Duyurular ve katılım bilgileri için yardım hattımızdan bize ulaşabilirsiniz.</p><a class="status-pill" href="https://wa.me/905304589383" target="_blank" rel="noopener">WhatsApp · +90 530 458 93 83</a></aside>
         </div>
       </div>
     </section>
@@ -663,10 +734,10 @@
       <div class="container">
         <span class="eyebrow">Dayanışmaya katıl</span>
         <h2>İyiliğe ayırdığınız her katkı kıymetli.</h2>
-        <p class="lead">Gönüllü olarak zamanınızı paylaşabilir veya resmî yardım kanalları ilan edildiğinde çalışmalarımıza destek olabilirsiniz.</p>
+        <p class="lead">Gönüllü olarak zamanınızı paylaşabilir, yardım talebi veya faaliyet bilgisi için doğrudan bize ulaşabilirsiniz.</p>
         <div class="support-grid">
-          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Saha ve dağıtım desteği</li><li>Eğitim ve organizasyon katkısı</li><li>İletişim ve içerik desteği</li></ul><button class="btn btn-gold disabled-btn" disabled>Başvuru formu yakında</button></article>
-          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><button class="btn btn-ghost disabled-btn" disabled>İletişim bilgisi bekleniyor</button></article>
+          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Saha ve dağıtım desteği</li><li>Eğitim ve organizasyon katkısı</li><li>İletişim ve içerik desteği</li></ul><a class="btn btn-gold support-action" href="mailto:yardim@hzsaunasultan.com?subject=G%C3%B6n%C3%BCll%C3%BC%20Ba%C5%9Fvurusu">E-posta ile gönüllü ol</a></article>
+          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><a class="btn btn-ghost support-action" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20ba%C5%9Fvurusu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan ulaş</a></article>
         </div>
       </div>
     </section>
@@ -703,13 +774,13 @@
           <p class="lead">Gerçek faaliyet fotoğrafları, açık rıza ve mahremiyet kontrollerinin ardından bu alanda paylaşılacaktır.</p>
         </div>
         <div class="gallery-grid">
-          <div class="gallery-item" data-label="Yardımlaşma çalışmaları"><span>♡</span></div>
-          <div class="gallery-item" data-label="Gönüllü buluşmaları"><span>∞</span></div>
-          <div class="gallery-item" data-label="Eğitim programları"><span>✦</span></div>
-          <div class="gallery-item" data-label="Kültürel etkinlikler"><span>◈</span></div>
-          <div class="gallery-item" data-label="Saha faaliyetleri"><span>◇</span></div>
+          <div class="gallery-item" data-label="Yardım paketleme çalışması — temsili"><img src="assets/yardim-paketleme.webp" alt="Gönüllülerin yardım kolilerine temel gıda paketleri yerleştirdiği temsili sahne"><span class="ai-label">AI ile üretildi</span></div>
+          <div class="gallery-item" data-label="Gönüllü buluşması — temsili"><img src="assets/gonullu-bulusmasi.webp" alt="Yetişkin gönüllülerin yardım paketleri hazırladığı temsili sahne"><span class="ai-label">AI ile üretildi</span></div>
+          <div class="gallery-item" data-label="Manevi sohbet — temsili"><img src="assets/manevi-sohbet.webp" alt="Yetişkinlerin huzurlu bir salonda manevi sohbet için bir araya geldiği temsili sahne"><span class="ai-label">AI ile üretildi</span></div>
+          <div class="gallery-item" data-label="Dayanışma hazırlığı — temsili"><img src="assets/yardim-paketleme.webp" alt="Yardım paketleme çalışmasından temsili detay"><span class="ai-label">AI ile üretildi</span></div>
+          <div class="gallery-item" data-label="Topluluk programı — temsili"><img src="assets/manevi-sohbet.webp" alt="Manevi sohbet ortamından temsili detay"><span class="ai-label">AI ile üretildi</span></div>
         </div>
-        <p class="gallery-note">Not: İhtiyaç sahiplerinin yüzleri ve kişisel bilgileri izinsiz yayımlanmayacaktır.</p>
+        <p class="gallery-note">Bu bölümdeki görseller yapay zekâ ile üretilmiş temsili sahnelerdir; gerçek bir faaliyet kaydı değildir. Gerçek fotoğraflar eklenirken açık rıza ve mahremiyet kontrolleri uygulanacaktır.</p>
       </div>
     </section>
 
@@ -720,7 +791,7 @@
           <div class="faq-item open"><button class="faq-question"><span>Derneğin merkezi nerededir?</span><span>+</span></button><div class="faq-answer">Derneğin merkezi Sarıyer / İstanbul’dur. Açık adres, resmî iletişim bilgileri kesinleştirildiğinde yayımlanacaktır.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Yardım başvuruları nasıl değerlendirilir?</span><span>+</span></button><div class="faq-answer">Başvurular belge incelemesi ve gerektiğinde saha değerlendirmesiyle, kişisel veriler korunarak ele alınır.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Üye olmadan gönüllü olabilir miyim?</span><span>+</span></button><div class="faq-answer">Evet. Uygun faaliyetlerde görev almak için dernek üyeliği zorunlu değildir.</div></div>
-          <div class="faq-item"><button class="faq-question"><span>Nasıl maddi destek sağlayabilirim?</span><span>+</span></button><div class="faq-answer">Yalnızca dernek tarafından ilan edilen resmî hesap ve iletişim kanalları kullanılmalıdır. Bu bilgiler henüz siteye eklenmemiştir.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Nasıl maddi destek sağlayabilirim?</span><span>+</span></button><div class="faq-answer">Maddi destek ve resmî hesap bilgileri için yardim@hzsaunasultan.com adresi veya +90 530 458 93 83 numarası üzerinden bilgi alabilirsiniz. Yalnızca dernek tarafından doğrulanan hesapları kullanın.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Dernek üyeliği nasıl gerçekleşir?</span><span>+</span></button><div class="faq-answer">Yazılı başvuru yönetim kurulunca tüzük hükümlerine göre değerlendirilir.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Kişisel veriler nasıl korunur?</span><span>+</span></button><div class="faq-answer">Yardım alan, gönüllü ve bağışçılara ait bilgiler yalnızca yetkili kişilerce, ilgili mevzuat ve açık rıza esaslarına göre işlenir.</div></div>
         </div>
@@ -731,12 +802,13 @@
   <section class="contact" id="iletisim">
     <div class="container">
       <div class="contact-card">
-        <div><span class="eyebrow">İletişim</span><h2>Kapımız iyiliğe açık.</h2><p>Resmî iletişim kanalları onaylandığında burada yayımlanacaktır.</p></div>
+        <div><span class="eyebrow">İletişim</span><h2>Kapımız iyiliğe açık.</h2><p>Yardım, gönüllülük ve genel bilgi talepleriniz için telefon, WhatsApp veya e-posta üzerinden bize ulaşabilirsiniz.</p></div>
         <div class="contact-info">
           <div><span>Merkez</span><strong>Sarıyer / İstanbul</strong></div>
-          <div><span>Telefon</span><strong>Yakında</strong></div>
-          <div><span>E-posta</span><strong>Yakında</strong></div>
-          <div><span>Sosyal medya</span><strong>Yakında</strong></div>
+          <div><span>Telefon</span><a href="tel:+905304589383">+90 530 458 93 83</a></div>
+          <div><span>WhatsApp</span><a href="https://wa.me/905304589383" target="_blank" rel="noopener">WhatsApp’tan yazın</a></div>
+          <div><span>E-posta</span><a href="mailto:yardim@hzsaunasultan.com">yardim@hzsaunasultan.com</a></div>
+          <div><span>Web</span><strong>hzsaunasultan.com</strong></div>
         </div>
       </div>
       <footer>
@@ -770,6 +842,39 @@
         item.classList.toggle('open');
       });
     });
+
+    const verses = [
+      {
+        text: "Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin ve Allah'tan korkun ki rahmete eresiniz.",
+        source: "Hucurât Suresi · 10. Ayet"
+      },
+      {
+        text: "Düşküne, yetime ve esire seve seve yemek yedirirler.",
+        source: "İnsân Suresi · 8. Ayet"
+      },
+      {
+        text: "Sevdiğiniz şeylerden (Allah yolunda) harcamadıkça, gerçek iyiliğe asla erişemezsiniz.",
+        source: "Âl-i İmrân Suresi · 92. Ayet"
+      },
+      {
+        text: "Mallarını Allah yolunda harcayanların durumu, bir tanenin durumu gibidir ki, yedi başak bitirmiş ve her başakta yüz tane var.",
+        source: "Bakara Suresi · 261. Ayet"
+      }
+    ];
+    const verseText = document.getElementById('verseText');
+    const verseSource = document.getElementById('verseSource');
+    const quoteDots = [...document.querySelectorAll('.quote-dot')];
+    let activeVerse = 0;
+    function showVerse(index) {
+      activeVerse = index;
+      verseText.textContent = verses[index].text;
+      verseSource.textContent = verses[index].source;
+      quoteDots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+    }
+    quoteDots.forEach((dot, index) => dot.addEventListener('click', () => showVerse(index)));
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.setInterval(() => showVerse((activeVerse + 1) % verses.length), 8000);
+    }
   </script>
 </body>
 </html>
