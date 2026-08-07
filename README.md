@@ -1,4 +1,4 @@
-# Hz. Sauna Sultan Dergâhı — GitHub Pages V5.3
+# Hz. Sauna Sultan Dergâhı — GitHub Pages V6.0
 
 Bu paket, **Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği**
 internet sitesinin örnek içeriklerle zenginleştirilmiş GitHub Pages sürümüdür.
@@ -9,6 +9,10 @@ Bu sürümde ana sayfa daha işlevsel hâle getirilmiş; 29 ziyaret noktasına a
 aranabilir Türbe Rehberi, hızlı işlem kartları, sabit WhatsApp bağlantısı,
 faaliyet arşivi altyapısı, yeni marka işareti, sosyal paylaşım görseli ve
 GitHub Pages teknik dosyaları eklenmiştir.
+V6.0 ile faaliyetler durum filtreli ayrı bir arşive taşınmış; gönüllü ve yardım
+başvuruları ayrıştırılmış; Türbe Rehberi'ne ziyaret adabı, harita, favoriler,
+detay görünümü ve yakındaki noktaları arama; Kur'an Rehberi'ne konu kısayolları,
+ayet aralığı araması ve tarayıcı destekli sesli okuma eklenmiştir.
 Gönüllülük bağlantıları, site içinde açılan ve başvuru bilgilerini kullanıcının
 onayıyla hazır bir WhatsApp mesajına dönüştüren forma bağlanmıştır. Form,
 GitHub Pages üzerinde herhangi bir kişisel veriyi kaydetmez.
@@ -22,6 +26,8 @@ içindeki “SS” monogramıyla yenilenmiştir.
 - `quran-data.js`: Kur’an Rehberi veri seti
 - `turbe-rehberi.html`: İsim, şehir ve kategori filtreli ziyaret rehberi
 - `turbe-data.js`: 29 ziyaret noktasının adres ve açıklama verileri
+- `faaliyetler.html`, `faaliyet-data.js`: Durum filtreli faaliyet ve duyuru arşivi
+- `basvuru.html`: Gönüllü ve yardım talebi için ayrı, KVKK bağlantılı başvuru akışları
 - `kvkk.html`: Derneğe özel kişisel verilerin korunması ve aydınlatma metni
 - `belgeler/sauna-sultan-dernek-tuzugu.pdf`: Şeffaflık bölümünden erişilen dernek tüzüğü
 - `assets/`: Yapay zekâ ile üretilmiş temsili faaliyet görselleri
@@ -59,26 +65,22 @@ içindeki “SS” monogramıyla yenilenmiştir.
 5. **Save** düğmesine tıklayın.
 6. Yayının hazırlanması için birkaç dakika bekleyin.
 
-Site adresiniz aşağıdaki biçimde olacaktır:
-
-`https://KULLANICI-ADINIZ.github.io/hz-sauna-sultan-dergahi/`
-
-Bu pakette `CNAME` dosyası yoktur. GitHub Pages ayarlarındaki **Custom domain**
-alanını da boş bırakın. Böylece site GitHub uzantılı adresinde kalır.
+Site adresiniz `https://KULLANICI-ADINIZ.github.io/hz-sauna-sultan-dergahi/`
+biçiminde olacaktır. Bu pakette `CNAME` bulunmaz; özel alan adı daha sonra
+bağlanabilir.
 
 ## Önemli
 
 - ZIP dosyasını repository'ye tek parça olarak yüklemeyin; önce bilgisayarınızda
   açıp içindeki dosyaları yükleyin.
 - `index.html` mutlaka repository'nin ana dizininde bulunmalıdır.
-- Eski yüklemede `CNAME` dosyası bulunuyorsa repository içinden silin.
-- **Settings → Pages → Custom domain** alanında `hzsaunasultan.com` yazıyorsa
-  kaldırıp kaydedin.
+- Eski yüklemede `CNAME` dosyası bulunuyorsa repository içinden kaldırın.
+- **Settings → Pages → Custom domain** alanını şimdilik boş bırakın.
 - `assets` klasörünü ve `quran-data.js` dosyasını atlamayın; aksi hâlde
   görseller veya Kur’an Rehberi çalışmaz.
 - `turbe-data.js` dosyasını ve `assets/turbeler` klasörünü atlamayın; aksi
   hâlde Türbe Rehberi kartları ya da fotoğrafları görüntülenmez.
-- Siteye `yardim@hzsaunasultan.com` adresi ve `+90 530 458 93 83`
+- Siteye `yardim@saunasultan.com` adresi ve `+90 530 458 93 83`
   telefon/WhatsApp hattı eklenmiştir. Bu bilgiler değişirse `index.html`
   içindeki iletişim bağlantıları birlikte güncellenmelidir.
 - Gönüllü formu gönderildiğinde bilgiler `+90 530 458 93 83` numarasına

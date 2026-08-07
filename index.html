@@ -114,7 +114,7 @@
     .brand-text small { display: block; color: rgba(255,255,255,.55); font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 27px; font-size: .86rem; font-weight: 600; }
     .nav-links a { color: rgba(255,255,255,.8); transition: color .2s; }
-    .nav-links a:hover { color: var(--gold-pale); }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-pale); }
     .nav-cta, .btn {
       display: inline-flex;
       align-items: center;
@@ -452,6 +452,8 @@
     .support-card li { display: flex; gap: 11px; color: rgba(255,255,255,.8); font-size: .86rem; }
     .support-card li::before { content: "✓"; color: var(--gold-pale); }
     .support-action { width: 100%; margin-top: auto; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
     .transparency-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
     .report-list { display: grid; gap: 13px; margin-top: 30px; }
@@ -784,7 +786,7 @@
       <button class="menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a href="#hakkimizda">Hakkımızda</a>
-        <a href="#faaliyetler">Faaliyetler</a>
+        <a href="faaliyetler.html">Faaliyetler</a>
         <a href="kuran-rehberi.html">Kur’an Rehberi</a>
         <a href="turbe-rehberi.html">Türbe Rehberi</a>
         <a href="#seffaflik">Şeffaflık</a>
@@ -802,7 +804,7 @@
           <h1>Gönülden gönüle <span>uzanan bir yol.</span></h1>
           <p class="intro">Manevi değerleri yaşatmak, ihtiyaç sahiplerinin yanında olmak ve merhameti dayanışmaya dönüştürmek için bir aradayız.</p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20talebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Yardım talebinde bulun <span>→</span></a>
+            <a class="btn btn-gold" href="basvuru.html?tur=yardim">Yardım talebinde bulun <span>→</span></a>
             <a class="btn btn-gold" href="turbe-rehberi.html">Türbe Rehberi</a>
           </div>
         </div>
@@ -829,8 +831,8 @@
 
     <section class="quick-actions" aria-label="Hızlı işlemler">
       <div class="container quick-grid">
-        <a class="quick-card" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20talebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><b>♡</b><div><h3>Yardım talebi</h3><p>İlk iletişimi WhatsApp üzerinden kurun; ihtiyaç değerlendirmesi için ekibimiz size dönüş yapsın.</p><span>İletişime geç →</span></div></a>
-        <button class="quick-card volunteer-form-trigger" type="button"><b>✦</b><div><h3>Gönüllü olun</h3><p>Zamanınıza ve becerilerinize uygun yardım, eğitim, organizasyon veya içerik çalışmalarına katılın.</p><span>Formu aç →</span></div></button>
+        <a class="quick-card" href="basvuru.html?tur=yardim"><b>♡</b><div><h3>Yardım talebi</h3><p>Mahremiyet odaklı kısa formu hazırlayın; mesajı görüp onayladıktan sonra WhatsApp üzerinden iletin.</p><span>Güvenli başvuruyu aç →</span></div></a>
+        <a class="quick-card" href="basvuru.html?tur=gonullu"><b>✦</b><div><h3>Gönüllü olun</h3><p>Zamanınıza ve becerilerinize uygun yardım, eğitim, organizasyon veya içerik çalışmalarına katılın.</p><span>Gönüllü formunu aç →</span></div></a>
         <a class="quick-card" href="turbe-rehberi.html"><b>⌖</b><div><h3>Türbe Rehberi</h3><p>29 ziyaret noktasını isim, şehir veya ilçeye göre arayın ve doğrudan yol tarifi alın.</p><span>Rehberi aç →</span></div></a>
       </div>
     </section>
@@ -861,11 +863,11 @@
           <p class="lead">Tüzüğümüzde yer alan amaçları, düzenli ve ölçülebilir çalışmalarla toplumsal faydaya dönüştürüyoruz.</p>
         </div>
         <div class="cards">
-          <article class="activity-card"><span class="card-icon">♡</span><h3>Sosyal yardımlar</h3><p>Gıda kolisi, sıcak yemek, giyim, barınma, eğitim ve sağlık destekleri.</p><a href="#destek">Süreci incele →</a></article>
-          <article class="activity-card"><span class="card-icon">✦</span><h3>Eğitim & gençlik</h3><p>Değerler eğitimi, rehberlik, burs ve gençlerin gelişimini destekleyen programlar.</p><a href="#takvim">Programları gör →</a></article>
+          <article class="activity-card"><span class="card-icon">♡</span><h3>Sosyal yardımlar</h3><p>Gıda kolisi, sıcak yemek, giyim, barınma, eğitim ve sağlık destekleri.</p><a href="basvuru.html?tur=yardim">Süreci incele →</a></article>
+          <article class="activity-card"><span class="card-icon">✦</span><h3>Eğitim & gençlik</h3><p>Değerler eğitimi, rehberlik, burs ve gençlerin gelişimini destekleyen programlar.</p><a href="faaliyetler.html">Programları gör →</a></article>
           <article class="activity-card"><span class="card-icon">☾</span><h3>Manevi bilgiler</h3><p>Kaynağı belirtilen Kur’an ayetleri, yardımlaşma ahlâkı ve kültürel miras içerikleri.</p><a href="#bilgi">İçerikleri keşfet →</a></article>
           <article class="activity-card"><span class="card-icon">⌂</span><h3>Aile desteği</h3><p>Aileyi güçlendiren, korunmaya ihtiyaç duyan bireylere yönelik sosyal çalışmalar.</p><a href="#iletisim">Bilgi al →</a></article>
-          <article class="activity-card"><span class="card-icon">◈</span><h3>Kültürel miras</h3><p>Manevi ve kültürel mirası tanıtan yayın, etkinlik ve koruma faaliyetleri.</p><a href="#bilgi">Detayları gör →</a></article>
+          <article class="activity-card"><span class="card-icon">◈</span><h3>Kültürel miras</h3><p>Manevi ve kültürel mirası tanıtan yayın, etkinlik ve koruma faaliyetleri.</p><a href="faaliyetler.html">Detayları gör →</a></article>
           <article class="activity-card"><span class="card-icon">⟡</span><h3>Afet & acil destek</h3><p>İzinler ve koordinasyon çerçevesinde acil ihtiyaçlara hızlı dayanışma.</p><a href="#destek">Destek ol →</a></article>
         </div>
       </div>
@@ -959,7 +961,7 @@
             <div class="event-date"><strong>•</strong><span>Güncel</span></div>
             <div class="event-copy"><h3>Yardım ve dayanışma çalışmaları</h3><p>Gıda paketi hazırlama, ihtiyaç tespiti, yardım dağıtımı ve gönüllü organizasyonlarına ilişkin duyurular burada paylaşılacaktır.</p><div class="event-meta"><span>◷ Yeni faaliyetler yakında</span><span>⌖ Sarıyer / İstanbul</span></div></div>
           </article>
-          <aside class="notice-card"><h3>Çalışmalarımıza katılın.</h3><p>Yardım talebinde bulunmak, gönüllü olmak veya faaliyetlerimize katkı sağlamak için bizimle iletişime geçebilirsiniz.</p><a class="status-pill" href="https://wa.me/905304589383" target="_blank" rel="noopener">WhatsApp · +90 530 458 93 83</a></aside>
+          <aside class="notice-card"><h3>Çalışmalarımızı takip edin.</h3><p>Planlanan, hazırlanan ve tamamlanan çalışmalar için yeni faaliyet arşivimizi inceleyebilirsiniz.</p><a class="status-pill" href="faaliyetler.html">Tüm faaliyetleri görüntüle →</a></aside>
         </div>
         <div class="archive-grid" aria-label="Faaliyet arşivi">
           <article class="archive-card"><img src="assets/yardim-paketleme.webp" alt="Yapay zekâ ile oluşturulmuş temsili yardım paketleme sahnesi" loading="lazy"><div class="archive-copy"><small>Arşiv altyapısı · Temsili görsel</small><h3>Yardım çalışmaları</h3><p>Doğrulanmış faaliyet tarihi, ulaşılan kişi veya hane sayısı ve sonuç özeti bu alanda yayımlanacaktır.</p></div></article>
@@ -975,8 +977,8 @@
         <h2>İyiliğe ayırdığınız her katkı kıymetli.</h2>
         <p class="lead">Gönüllü olarak zamanınızı paylaşabilir, yardım talebi veya faaliyet bilgisi için doğrudan bize ulaşabilirsiniz.</p>
         <div class="support-grid">
-          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Yardım paketleme</li><li>Saha ve dağıtım desteği</li><li>Eğitim faaliyetleri</li><li>Organizasyon ve ulaşım</li><li>Fotoğraf ve içerik</li><li>İletişim desteği</li></ul><button class="btn btn-gold support-action volunteer-form-trigger" type="button">Gönüllü başvuru formunu aç</button></article>
-          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><a class="btn btn-gold support-action" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20ba%C5%9Fvurusu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan ulaş</a></article>
+          <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Yardım paketleme</li><li>Saha ve dağıtım desteği</li><li>Eğitim faaliyetleri</li><li>Organizasyon ve ulaşım</li><li>Fotoğraf ve içerik</li><li>İletişim desteği</li></ul><a class="btn btn-gold support-action" href="basvuru.html?tur=gonullu">Gönüllü başvuru formunu aç</a></article>
+          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><a class="btn btn-gold support-action" href="basvuru.html?tur=yardim">Yardım başvuru formunu aç</a></article>
         </div>
       </div>
     </section>
@@ -1032,7 +1034,7 @@
           <div class="faq-item open"><button class="faq-question"><span>Derneğin merkezi nerededir?</span><span>+</span></button><div class="faq-answer">Derneğin merkezi Sarıyer / İstanbul’dur. Açık adres, resmî iletişim bilgileri kesinleştirildiğinde yayımlanacaktır.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Yardım başvuruları nasıl değerlendirilir?</span><span>+</span></button><div class="faq-answer">Başvurular belge incelemesi ve gerektiğinde saha değerlendirmesiyle, kişisel veriler korunarak ele alınır.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Üye olmadan gönüllü olabilir miyim?</span><span>+</span></button><div class="faq-answer">Evet. Uygun faaliyetlerde görev almak için dernek üyeliği zorunlu değildir.</div></div>
-          <div class="faq-item"><button class="faq-question"><span>Nasıl maddi destek sağlayabilirim?</span><span>+</span></button><div class="faq-answer">Maddi destek ve resmî hesap bilgileri için yardim@hzsaunasultan.com adresi veya +90 530 458 93 83 numarası üzerinden bilgi alabilirsiniz. Yalnızca dernek tarafından doğrulanan hesapları kullanın.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Nasıl maddi destek sağlayabilirim?</span><span>+</span></button><div class="faq-answer">Maddi destek ve resmî hesap bilgileri için yardim@saunasultan.com adresi veya +90 530 458 93 83 numarası üzerinden bilgi alabilirsiniz. Yalnızca dernek tarafından doğrulanan hesapları kullanın.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Dernek üyeliği nasıl gerçekleşir?</span><span>+</span></button><div class="faq-answer">Yazılı başvuru yönetim kurulunca tüzük hükümlerine göre değerlendirilir.</div></div>
           <div class="faq-item"><button class="faq-question"><span>Kişisel veriler nasıl korunur?</span><span>+</span></button><div class="faq-answer">Yardım alan, gönüllü ve bağışçılara ait bilgiler yalnızca yetkili kişilerce, ilgili mevzuat ve açık rıza esaslarına göre işlenir.</div></div>
         </div>
@@ -1048,7 +1050,7 @@
           <div><span>Merkez</span><strong>Sarıyer / İstanbul</strong></div>
           <div><span>Telefon</span><a href="tel:+905304589383">+90 530 458 93 83</a></div>
           <div><span>WhatsApp</span><a href="https://wa.me/905304589383" target="_blank" rel="noopener">WhatsApp’tan yazın</a></div>
-          <div><span>E-posta</span><a href="mailto:yardim@hzsaunasultan.com">yardim@hzsaunasultan.com</a></div>
+          <div><span>E-posta</span><a href="mailto:yardim@saunasultan.com">yardim@saunasultan.com</a></div>
         </div>
       </div>
       <footer>
@@ -1120,7 +1122,7 @@
         </label>
         <div class="form-actions">
           <button class="btn btn-gold" type="submit">WhatsApp ile başvuruyu gönder</button>
-          <a href="mailto:yardim@hzsaunasultan.com?subject=G%C3%B6n%C3%BCll%C3%BC%20Ba%C5%9Fvurusu">E-posta kullanmayı tercih ediyorum</a>
+          <a href="mailto:yardim@saunasultan.com?subject=G%C3%B6n%C3%BCll%C3%BC%20Ba%C5%9Fvurusu">E-posta kullanmayı tercih ediyorum</a>
         </div>
         <p class="form-note">Bu form bilgilerinizi internet sitesinde kaydetmez. Gönderim, cihazınızda açılan WhatsApp üzerinden sizin onayınızla gerçekleşir.</p>
         <p class="form-status" id="volunteerStatus" role="status" aria-live="polite"></p>
@@ -1286,6 +1288,14 @@
         closeLightbox();
       }
     });
+    const revealTargets = document.querySelectorAll('main > section:not(.hero), .trust-strip, .quick-actions');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealTargets.forEach(item => item.classList.add('reveal'));
+      const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+      }), { threshold: .08, rootMargin: '0px 0px -45px' });
+      revealTargets.forEach(item => revealObserver.observe(item));
+    } else { revealTargets.forEach(item => item.classList.add('visible')); }
   </script>
 </body>
 </html>

@@ -4,13 +4,13 @@
 
 Ana posta kutusu:
 
-- `yardim@hzsaunasultan.com`
+- `yardim@saunasultan.com`
 
 Bu adrese yönlenecek takma adresler:
 
-- `iletisim@hzsaunasultan.com`
-- `gonullu@hzsaunasultan.com`
-- `bilgi@hzsaunasultan.com`
+- `iletisim@saunasultan.com`
+- `gonullu@saunasultan.com`
+- `bilgi@saunasultan.com`
 
 ## Genel kurulum adımları
 
@@ -19,13 +19,13 @@ Bu adrese yönlenecek takma adresler:
 2. **E-posta**, **E-posta hesapları**, **Aliases / Takma adlar**,
    **Forwarders / Yönlendiriciler** veya **Email Routing** başlıklı bölümü açın.
 3. Yeni bir takma adres ya da yönlendirici oluşturun.
-4. Kaynak adres olarak önce `iletisim@hzsaunasultan.com`, hedef adres olarak
-   `yardim@hzsaunasultan.com` girin ve kaydedin.
-5. Aynı işlemi `gonullu@hzsaunasultan.com` ve
-   `bilgi@hzsaunasultan.com` için tekrarlayın.
+4. Kaynak adres olarak önce `iletisim@saunasultan.com`, hedef adres olarak
+   `yardim@saunasultan.com` girin ve kaydedin.
+5. Aynı işlemi `gonullu@saunasultan.com` ve
+   `bilgi@saunasultan.com` için tekrarlayın.
 6. Haricî bir Gmail veya Outlook hesabından üç adrese de ayrı ayrı test
    iletisi gönderin.
-7. Üç iletinin de `yardim@hzsaunasultan.com` gelen kutusuna ulaştığını
+7. Üç iletinin de `yardim@saunasultan.com` gelen kutusuna ulaştığını
    doğrulayın.
 
 Takma adres desteği varsa bu yapı için üç ayrı ücretli posta kutusu satın
@@ -37,7 +37,7 @@ Yönlendirme yalnızca gelen postayı aynı kutuya taşır. Yanıtların
 `iletisim@`, `gonullu@` veya `bilgi@` adresinden görünmesini istiyorsanız
 sağlayıcı panelinde **Farklı gönder / Send as**, **gönderici kimliği** veya
 SMTP takma adresi özelliğini de kurun. Bu özellik yoksa yanıt
-`yardim@hzsaunasultan.com` adresinden gider.
+`yardim@saunasultan.com` adresinden gider.
 
 ## Güvenlik notları
 

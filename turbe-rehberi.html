@@ -173,6 +173,36 @@
     .visit-note b { width: 48px; height: 48px; display: grid; place-items: center; color: var(--forest-deep); background: var(--gold-pale); border-radius: 50%; font-size: 1.2rem; }
     .visit-note strong { display: block; color: white; }
     .visit-note p { margin: 6px 0 0; font-size: .88rem; }
+    .adab { padding: 78px 0; color: white; background: #061f19; }
+    .adab-head { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: end; }
+    .adab h2 { margin-top: 15px; color: white; font-size: clamp(2.2rem, 4vw, 4rem); }
+    .adab-lead { color: rgba(255,255,255,.66); }
+    .adab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 38px; }
+    .adab-card { padding: 25px; border: 1px solid rgba(255,255,255,.11); border-radius: 20px; background: rgba(255,255,255,.045); }
+    .adab-card b { width: 38px; height: 38px; display: grid; place-items: center; color: var(--forest-deep); background: var(--gold-pale); border-radius: 50%; }
+    .adab-card strong { display: block; margin-top: 17px; color: white; font-family: "Playfair Display", serif; font-size: 1.15rem; }
+    .adab-card p { margin: 8px 0 0; color: rgba(255,255,255,.62); font-size: .79rem; }
+    .adab-note { margin-top: 25px; padding: 18px 20px; color: var(--gold-pale); border-left: 3px solid var(--gold); background: rgba(196,154,82,.08); border-radius: 0 12px 12px 0; font-size: .8rem; }
+    .favorite { position: absolute; right: 15px; top: 15px; z-index: 2; width: 39px; height: 39px; display: grid; place-items: center; color: white; background: rgba(9,42,34,.88); border: 1px solid rgba(255,255,255,.25); border-radius: 50%; cursor: pointer; font-size: 1rem; }
+    .favorite.saved { color: var(--forest-deep); background: var(--gold-pale); }
+    .detail-btn { grid-column: 1 / -1; min-height: 43px; color: var(--forest); background: white; border: 1px solid var(--line); border-radius: 999px; font-size: .76rem; font-weight: 700; cursor: pointer; }
+    .nearby { margin-left: auto; min-height: 42px; padding: 0 16px; color: var(--forest-deep); background: var(--gold-pale); border: 0; border-radius: 999px; font-size: .79rem; font-weight: 700; cursor: pointer; }
+    .map-panel { display: grid; grid-template-columns: 300px 1fr; gap: 0; overflow: hidden; margin: 26px 0 34px; border: 1px solid var(--line); border-radius: 23px; background: white; box-shadow: 0 14px 36px rgba(17,49,39,.08); }
+    .map-copy { padding: 25px; }
+    .map-copy h3 { color: var(--forest-deep); font-size: 1.45rem; }
+    .map-copy p { color: var(--muted); font-size: .78rem; }
+    .map-copy select { width: 100%; min-height: 48px; margin-top: 13px; padding: 0 12px; color: var(--forest); background: var(--cream); border: 1px solid var(--line); border-radius: 12px; }
+    .map-panel iframe { width: 100%; min-height: 330px; border: 0; }
+    .detail-modal[hidden] { display: none; }
+    .detail-modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 18px; background: rgba(3,22,17,.78); backdrop-filter: blur(10px); }
+    .detail-dialog { position: relative; width: min(860px, 100%); max-height: 90vh; overflow: auto; display: grid; grid-template-columns: .85fr 1.15fr; background: var(--paper); border-radius: 25px; box-shadow: 0 30px 90px rgba(0,0,0,.3); }
+    .detail-dialog img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+    .detail-copy { padding: 34px; }
+    .detail-copy h2 { margin-top: 10px; color: var(--forest-deep); font-size: 2rem; }
+    .detail-copy p { color: var(--muted); font-size: .85rem; }
+    .detail-close { position: absolute; right: 14px; top: 14px; z-index: 2; width: 40px; height: 40px; color: white; background: rgba(9,42,34,.92); border: 0; border-radius: 50%; cursor: pointer; }
+    .detail-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .detail-actions a { padding: 11px 15px; color: white; background: var(--forest); border-radius: 999px; font-size: .75rem; font-weight: 700; }
 
     footer { padding: 55px 0 35px; color: rgba(255,255,255,.58); background: #061f19; }
     .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; }
@@ -209,6 +239,10 @@
       .hero-inner { grid-template-columns: 1fr; gap: 45px; }
       .hero-stats { max-width: 620px; }
       .grid { grid-template-columns: repeat(2, 1fr); }
+      .adab-grid { grid-template-columns: 1fr 1fr; }
+      .detail-dialog { grid-template-columns: 1fr; }
+      .detail-dialog img { min-height: 280px; max-height: 340px; }
+      .map-panel { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 660px) {
@@ -225,6 +259,9 @@
       .guide-intro p { margin-top: 15px; }
       .toolbar { top: 86px; grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
+      .adab-head { grid-template-columns: 1fr; gap: 15px; }
+      .adab-grid { grid-template-columns: 1fr; }
+      .nearby { width: 100%; margin-left: 0; }
       .result-line { align-items: flex-start; flex-direction: column; gap: 4px; }
       .footer-inner { grid-template-columns: 1fr; }
       .whatsapp span { display: none; }
@@ -253,11 +290,11 @@
       <button class="menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a href="index.html">Ana Sayfa</a>
-        <a href="index.html#faaliyetler">Faaliyetler</a>
+        <a href="faaliyetler.html">Faaliyetler</a>
         <a href="kuran-rehberi.html">Kur’an Rehberi</a>
         <a href="turbe-rehberi.html" aria-current="page">Türbe Rehberi</a>
         <a href="index.html#seffaflik">Şeffaflık</a>
-        <a class="nav-cta" href="index.html#iletisim">İletişim</a>
+        <a class="nav-cta" href="basvuru.html">Başvuru</a>
       </div>
     </div>
   </nav>
@@ -275,6 +312,21 @@
           <div class="hero-stat"><strong>13</strong><span>Şehir</span></div>
           <div class="hero-stat"><strong>9</strong><span>İstanbul rotası</span></div>
         </div>
+      </div>
+    </section>
+
+    <section class="adab" id="ziyaret-adabi">
+      <div class="container">
+        <div class="adab-head"><div><span class="eyebrow">Edep ile ziyaret</span><h2>Huzura saygıyla varmak.</h2></div><p class="adab-lead">Bu rehberde benimsenen ziyaret usulü; gönül sultanlarının huzuruna sessizlik, tevazu, temizlik ve hizmet niyetiyle varmayı esas alır. Ziyaret edilen mekânın görevlilerinin ve yürürlükteki kuralların yönlendirmesi her zaman önceliklidir.</p></div>
+        <div class="adab-grid">
+          <article class="adab-card"><b>1</b><strong>Eşikte niyaz</strong><p>İlk girişte ve son çıkışta eşikte, çevreyi ve geçişi engellemeden, büyük bir tevazu ve edeple niyaz edilir. Secde yalnızca Allah’a mahsustur; burada ifade edilen niyaz, geleneğin saygı ve hürmet usulüdür.</p></article>
+          <article class="adab-card"><b>2</b><strong>Dört köşede selâmlama</strong><p>Girişte ve ayrılırken huzurun dört köşesinde üçer defa “Yâ Allah, Yâ Muhammed, Yâ Ali” denilerek gönülden niyaz edilir; diğer ziyaretçilerin huzuru gözetilir.</p></article>
+          <article class="adab-card"><b>3</b><strong>Huzura sırt çevirmemek</strong><p>Mümkün olduğu ölçüde sandukaya ve huzur makamına sırt dönmeden, güvenli ve ölçülü biçimde yönelişi koruyarak hareket edilir.</p></article>
+          <article class="adab-card"><b>4</b><strong>Sükûnet ve büyük edep</strong><p>Yüksek sesle konuşulmaz; telefon sessize alınır. Fotoğraf ve videoda mekân kurallarına ve ziyaretçilerin mahremiyetine uyulur.</p></article>
+          <article class="adab-card"><b>5</b><strong>Temizlik ve hizmet</strong><p>İzin verilen ölçüde su dökmek, temizlik yapmak, çevreyi toplamak ve ihtiyaç görülen hizmetlere gönülden katkı sunmak ziyaretin güzel bir parçası kabul edilir.</p></article>
+          <article class="adab-card"><b>6</b><strong>İzin ve ölçü</strong><p>Eşik, zemin veya sandukaya temas konusunda görevli uyarıları esas alınır; kalabalık, güvenlik veya fiziksel imkânlar uygun değilse niyaz gönülden ve bulunduğunuz yerden yapılır.</p></article>
+        </div>
+        <div class="adab-note">Bu hatırlatma, ziyaretçileri zorlamak veya farklı uygulamaları yargılamak için değil; bu rehberin bağlı olduğu edep geleneğini mütevazı biçimde aktarmak için hazırlanmıştır.</div>
       </div>
     </section>
 
@@ -302,7 +354,10 @@
           <button class="tab" type="button" data-category="silsele">Uşşâkî–Nâzenî Silsilesi</button>
           <button class="tab" type="button" data-category="anadolu">Anadolu Gönül Sultanları</button>
           <button class="tab" type="button" data-category="istanbul">Yalnızca İstanbul</button>
+          <button class="tab" type="button" data-category="favorites">Favorilerim</button>
+          <button class="nearby" id="nearbyButton" type="button">Yakınımdakileri haritada aç ↗</button>
         </div>
+        <section class="map-panel" aria-label="Ziyaret noktaları haritası"><div class="map-copy"><span class="category">Harita görünümü</span><h3>29 noktayı haritada inceleyin.</h3><p>Listeden bir ziyaret noktası seçtiğinizde harita o konuma odaklanır.</p><select id="mapSelect" aria-label="Haritada gösterilecek ziyaret noktasını seçin"></select></div><iframe id="mapFrame" title="Seçilen türbenin haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></section>
 
         <div class="result-line" aria-live="polite">
           <span><strong id="resultCount">29</strong> ziyaret noktası gösteriliyor</span>
@@ -327,7 +382,7 @@
       <div class="footer-inner">
         <div><h3>Hz. Sauna Sultan Dergâhı</h3><p>Manevi değerleri yaşatma, yardımlaşma ve gönüllülük çalışmaları.</p></div>
         <div><h3>Rehberler</h3><ul><li><a href="turbe-rehberi.html">Türbe Rehberi</a></li><li><a href="kuran-rehberi.html">Kur’an Rehberi</a></li><li><a href="index.html#bilgi">Dini Bilgiler</a></li></ul></div>
-        <div><h3>İletişim</h3><ul><li><a href="tel:+905304589383">+90 530 458 93 83</a></li><li><a href="mailto:yardim@hzsaunasultan.com">yardim@hzsaunasultan.com</a></li><li>Sarıyer / İstanbul</li></ul></div>
+        <div><h3>İletişim</h3><ul><li><a href="tel:+905304589383">+90 530 458 93 83</a></li><li><a href="mailto:yardim@saunasultan.com">yardim@saunasultan.com</a></li><li>Sarıyer / İstanbul</li></ul></div>
       </div>
       <div class="copyright">© 2026 Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği</div>
     </div>
@@ -335,6 +390,7 @@
 
   <a class="whatsapp" href="https://wa.me/905304589383?text=Merhaba%2C%20t%C3%BCrbe%20rehberi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp üzerinden iletişime geç"><b>✆</b><span>WhatsApp</span></a>
   <div class="toast" id="toast" role="status">Adres kopyalandı</div>
+  <div class="detail-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden><div class="detail-dialog"><button class="detail-close" type="button" aria-label="Detayı kapat">×</button><img id="detailImage" src="" alt=""><div class="detail-copy"><span class="category" id="detailCategory"></span><h2 id="detailTitle"></h2><p class="location" id="detailLocation"></p><p id="detailAddress"></p><div id="detailNote"></div><p><strong>Ziyaret hatırlatması:</strong> Huzura sessizlik ve büyük bir edeple yaklaşın; ziyaret öncesinde açık gün ve saat bilgisini doğrulayın.</p><div class="detail-actions"><a id="detailDrive" target="_blank" rel="noopener">Araçla yol tarifi ↗</a><a id="detailTransit" target="_blank" rel="noopener">Toplu taşıma ↗</a><a href="#ziyaret-adabi">Ziyaret adabını oku</a></div></div></div></div>
 
   <script src="turbe-data.js"></script>
   <script>
@@ -347,6 +403,7 @@
     const toast = document.getElementById('toast');
     const tabs = [...document.querySelectorAll('.tab')];
     let selectedCategory = 'all';
+    let favorites = new Set(JSON.parse(localStorage.getItem('turbeFavorites') || '[]'));
 
     const clean = value => String(value || '').normalize('NFC').replace(/\u0307/g, '');
     const searchable = value => clean(value).toLocaleLowerCase('tr-TR');
@@ -361,6 +418,10 @@
       option.textContent = city;
       citySelect.appendChild(option);
     });
+    const mapSelect = document.getElementById('mapSelect');
+    window.TURBE_DATA.forEach(item => { const option = document.createElement('option'); option.value = item.id; option.textContent = `${String(item.id).padStart(2,'0')} · ${titleCase(item.name)}`; mapSelect.appendChild(option); });
+    function updateMap() { const item = window.TURBE_DATA.find(x => x.id === Number(mapSelect.value)) || window.TURBE_DATA[0]; document.getElementById('mapFrame').src = `https://www.google.com/maps?q=${encodeURIComponent(clean(item.address))}&output=embed`; }
+    mapSelect.addEventListener('change', updateMap); updateMap();
 
     function categoryOf(item) {
       return item.id <= 14 ? 'silsele' : 'anadolu';
@@ -384,6 +445,7 @@
         const categoryMatch =
           selectedCategory === 'all' ||
           (selectedCategory === 'istanbul' && item.isIstanbul) ||
+          (selectedCategory === 'favorites' && favorites.has(item.id)) ||
           categoryOf(item) === selectedCategory;
         return queryMatch && cityMatch && categoryMatch;
       });
@@ -399,6 +461,7 @@
             <div class="card-media">
               <img src="assets/turbeler/${item.id}.webp" alt="${titleCase(item.name)}" loading="lazy" decoding="async"${imageStyle}>
               <span class="card-index">${String(item.id).padStart(2, '0')}</span>
+              <button class="favorite ${favorites.has(item.id) ? 'saved' : ''}" type="button" data-favorite="${item.id}" aria-label="${favorites.has(item.id) ? 'Favorilerden çıkar' : 'Favorilere ekle'}">${favorites.has(item.id) ? '♥' : '♡'}</button>
             </div>
             <div class="card-body">
               <span class="category">${categoryLabel(item)}</span>
@@ -410,6 +473,7 @@
                 <a class="route" href="${routeUrl(item, 'driving')}" target="_blank" rel="noopener">Araçla yol tarifi ↗</a>
                 <button class="copy" type="button" data-address="${clean(item.address).replaceAll('"', '&quot;')}" aria-label="Adresi kopyala" title="Adresi kopyala">⧉</button>
                 ${transit}
+                <button class="detail-btn" type="button" data-detail="${item.id}">Ziyaret bilgilerini görüntüle</button>
               </div>
             </div>
           </article>`;
@@ -429,6 +493,16 @@
       render();
     }));
     grid.addEventListener('click', async event => {
+      const favoriteButton = event.target.closest('[data-favorite]');
+      if (favoriteButton) {
+        const id = Number(favoriteButton.dataset.favorite);
+        favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+        localStorage.setItem('turbeFavorites', JSON.stringify([...favorites]));
+        toast.textContent = favorites.has(id) ? 'Favorilere eklendi' : 'Favorilerden çıkarıldı';
+        toast.classList.add('show'); window.setTimeout(() => toast.classList.remove('show'), 1500); render(); return;
+      }
+      const detailButton = event.target.closest('[data-detail]');
+      if (detailButton) { openDetail(Number(detailButton.dataset.detail)); return; }
       const button = event.target.closest('.copy');
       if (!button) return;
       try {
@@ -438,6 +512,31 @@
       } catch {
         window.prompt('Adresi kopyalayın:', button.dataset.address);
       }
+    });
+
+    const detailModal = document.getElementById('detailModal');
+    function openDetail(id) {
+      const item = window.TURBE_DATA.find(x => x.id === id); if (!item) return;
+      document.getElementById('detailImage').src = `assets/turbeler/${item.id}.webp`;
+      document.getElementById('detailImage').alt = titleCase(item.name);
+      document.getElementById('detailCategory').textContent = categoryLabel(item);
+      document.getElementById('detailTitle').textContent = titleCase(item.name);
+      document.getElementById('detailLocation').textContent = `⌖ ${titleCase(item.displayLocation)}`;
+      document.getElementById('detailAddress').textContent = clean(item.address);
+      document.getElementById('detailNote').innerHTML = item.note ? `<div class="note">${clean(item.note)}</div>` : '';
+      document.getElementById('detailDrive').href = routeUrl(item, 'driving');
+      document.getElementById('detailTransit').href = routeUrl(item, 'transit');
+      document.getElementById('detailTransit').style.display = item.isIstanbul ? '' : 'none';
+      detailModal.hidden = false; document.body.style.overflow = 'hidden';
+    }
+    function closeDetail(){ detailModal.hidden = true; document.body.style.overflow = ''; }
+    document.querySelector('.detail-close').addEventListener('click', closeDetail);
+    detailModal.addEventListener('click', event => { if (event.target === detailModal) closeDetail(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !detailModal.hidden) closeDetail(); });
+    document.getElementById('nearbyButton').addEventListener('click', () => {
+      const fallback = () => window.open('https://www.google.com/maps/search/t%C3%BCrbe', '_blank', 'noopener');
+      if (!navigator.geolocation) return fallback();
+      navigator.geolocation.getCurrentPosition(pos => window.open(`https://www.google.com/maps/search/t%C3%BCrbe/@${pos.coords.latitude},${pos.coords.longitude},12z`, '_blank', 'noopener'), fallback);
     });
 
     const menuButton = document.querySelector('.menu-btn');

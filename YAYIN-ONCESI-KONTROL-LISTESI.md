@@ -5,7 +5,7 @@
 - [ ] Derneğin resmî unvanı kontrol edildi.
 - [ ] Merkez ve açık adres bilgileri kesinleştirildi.
 - [ ] `+90 530 458 93 83` numarasının yayımlanması onaylandı.
-- [ ] `yardim@hzsaunasultan.com` posta kutusu test edildi.
+- [ ] `yardim@saunasultan.com` posta kutusu test edildi.
 - [ ] E-posta takma adresleri kuruldu ve dış hesaptan test edildi.
 
 ## Faaliyet ve şeffaflık
@@ -39,5 +39,6 @@
       mesajı kontrol edildi.
 - [ ] Repository içinde eski bir `CNAME` dosyası bulunmadığı kontrol edildi.
 - [ ] GitHub Pages **Custom domain** alanının boş olduğu kontrol edildi.
+- [ ] Site GitHub Pages uzantılı adresinden açıldı.
 - [ ] Site `https://KULLANICI-ADINIZ.github.io/hz-sauna-sultan-dergahi/`
       biçimindeki GitHub Pages adresinden açıldı.

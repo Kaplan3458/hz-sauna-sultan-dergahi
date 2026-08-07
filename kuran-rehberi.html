@@ -116,6 +116,14 @@
             border-color: var(--gold);
             background: #fff;
         }
+        .guided { max-width: 900px; margin: 0 auto; padding: 16px 15px 2px; }
+        .guided-title { display: flex; justify-content: space-between; gap: 15px; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+        .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 8px; scrollbar-width: thin; }
+        .chip { flex: 0 0 auto; padding: 9px 13px; color: var(--primary); background: var(--card-bg); border: 1px solid rgba(18,63,50,.16); border-radius: 999px; cursor: pointer; font-size: .75rem; font-weight: 700; }
+        .chip:hover { color: var(--primary-dark); border-color: var(--gold); background: var(--gold-pale); }
+        .listen { min-height: 34px; padding: 0 11px; color: var(--primary); background: transparent; border: 1px solid rgba(18,63,50,.18); border-radius: 999px; cursor: pointer; font-size: .7rem; font-weight: 700; }
+        .listen.playing { color: var(--primary-dark); background: var(--gold-pale); border-color: var(--gold); }
+        .verse-tools { display: flex; align-items: center; gap: 7px; }
 
         #results {
             padding: 15px;
@@ -230,8 +238,9 @@
             <div class="back-links"><a class="back-link" href="turbe-rehberi.html">Türbe Rehberi</a><a class="back-link" href="index.html#bilgi">← Ana siteye dön</a></div>
         </div>
         <div class="lang-scroll" id="langButtons"></div>
-        <input type="text" id="searchInput" placeholder="Ara: 'Fatiha', 'Ali İmran', '12', 'Bakara 5' veya 'Kalem'...">
+        <input type="text" id="searchInput" placeholder="Ara: 'Fatiha', 'Bakara 5', 'Bakara 10-15', 'sabır' veya 'rahmet'...">
     </div>
+    <section class="guided" aria-label="Konu ve ruh hâli kısayolları"><div class="guided-title"><span>Konu ve ruh hâli rehberi</span><span>Bir başlık seçin</span></div><div class="chips"><button class="chip" data-query="ümit">Ümide ihtiyacım var</button><button class="chip" data-query="sabır">Zor bir dönemden geçiyorum</button><button class="chip" data-query="rahmet">Rahmet ve bağışlanma</button><button class="chip" data-query="dua">Dua etmek istiyorum</button><button class="chip" data-query="şükür">Şükür</button><button class="chip" data-query="aile">Aile</button><button class="chip" data-query="evlat">Evlat sevgisi</button><button class="chip" data-query="adalet">Adalet</button><button class="chip" data-query="korku">Kaygı ve korku</button></div></section>
 
     <div id="results">
         <div style="text-align:center; color:#94A3B8; margin-top:60px;">
@@ -278,6 +287,7 @@
             }
             renderButtons();
             document.getElementById('searchInput').addEventListener('input', handleSearch);
+            document.querySelectorAll('.chip').forEach(chip => chip.addEventListener('click', () => { document.getElementById('searchInput').value = chip.dataset.query; handleSearch(); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
         };
 
         function renderButtons() {
@@ -318,16 +328,24 @@
             
             // Regex Tanımları (Sure+Ayet ve Sadece Ayet)
             // Regex için orijinal query'i kullanıyoruz ama isim kısmını normalize edeceğiz
-            const sureAyet = /^([a-zA-ZçğıöşüÇĞİÖŞÜ\s\-\'\^]+)\s+(\d+)$/; // "Bakara 5"
+            const sureAralik = /^([a-zA-ZçğıöşüÇĞİÖŞÜâîûÂÎÛ\s\'\^]+)\s+(\d+)\s*[-–]\s*(\d+)$/;
+            const sureAyet = /^([a-zA-ZçğıöşüÇĞİÖŞÜâîûÂÎÛ\s\-\'\^]+)\s+(\d+)$/; // "Bakara 5"
             const sadeceAyet = /^(\d+)$/; // "19"
 
+            const matchAralik = query.match(sureAralik);
             const matchSure = query.match(sureAyet);
             const matchAyet = query.match(sadeceAyet);
 
             // --- ARAMA MANTIĞI ---
 
             // 1. Durum: Sure Adı + Ayet No (Örn: "Bakara 5" veya "Ali imran 50")
-            if (matchSure) {
+            if (matchAralik) {
+                const sAdInput = normalizeText(matchAralik[1]);
+                const baslangic = Math.min(parseInt(matchAralik[2]), parseInt(matchAralik[3]));
+                const bitis = Math.max(parseInt(matchAralik[2]), parseInt(matchAralik[3]));
+                allSearchResults = DB.filter(item => normalizeText(item.name).startsWith(sAdInput) && item.a >= baslangic && item.a <= bitis);
+            }
+            else if (matchSure) {
                 const sAdInput = normalizeText(matchSure[1]); // Girdiyi temizle
                 const aNo = parseInt(matchSure[2]);
                 
@@ -424,11 +442,23 @@
             card.innerHTML = `
                 <div class="verse-header">
                     <strong style="font-size:1.1rem;">${row.name} Suresi</strong>
-                    <span class="verse-badge">${row.a}. Ayet</span>
+                    <span class="verse-tools"><button class="listen" type="button" aria-label="Ayeti dinle">▶ Dinle</button><span class="verse-badge">${row.a}. Ayet</span></span>
                 </div>
                 ${htmlContent}
             `;
+            const listen = card.querySelector('.listen');
+            listen.addEventListener('click', () => speakVerse(row, listen));
             return card;
+        }
+
+        function speakVerse(row, button) {
+            if (!('speechSynthesis' in window)) { alert('Tarayıcınız sesli okumayı desteklemiyor.'); return; }
+            if (button.classList.contains('playing')) { speechSynthesis.cancel(); button.classList.remove('playing'); button.textContent = '▶ Dinle'; return; }
+            speechSynthesis.cancel(); document.querySelectorAll('.listen.playing').forEach(x => { x.classList.remove('playing'); x.textContent = '▶ Dinle'; });
+            const text = activeLang === 'tr' ? row.tr_elmalili : row[activeLang];
+            const utterance = new SpeechSynthesisUtterance(`${row.name} Suresi ${row.a}. Ayet. ${text || ''}`);
+            utterance.lang = activeLang === 'tr' ? 'tr-TR' : activeLang === 'de' ? 'de-DE' : 'en-US'; utterance.rate = .9; utterance.pitch = .9;
+            button.classList.add('playing'); button.textContent = '■ Durdur'; utterance.onend = utterance.onerror = () => { button.classList.remove('playing'); button.textContent = '▶ Dinle'; }; speechSynthesis.speak(utterance);
         }
 
         function helperSubTrans(name, text) {
