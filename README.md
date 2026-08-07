@@ -22,6 +22,8 @@ içindeki “SS” monogramıyla yenilenmiştir.
 - `quran-data.js`: Kur’an Rehberi veri seti
 - `turbe-rehberi.html`: İsim, şehir ve kategori filtreli ziyaret rehberi
 - `turbe-data.js`: 29 ziyaret noktasının adres ve açıklama verileri
+- `kvkk.html`: Derneğe özel kişisel verilerin korunması ve aydınlatma metni
+- `belgeler/sauna-sultan-dernek-tuzugu.pdf`: Şeffaflık bölümünden erişilen dernek tüzüğü
 - `assets/`: Yapay zekâ ile üretilmiş temsili faaliyet görselleri
 - `assets/turbeler/`: Rehberde kullanılan optimize edilmiş gerçek mekân fotoğrafları
 - `assets/logo-mark.svg`: Altın onikigen içindeki SS monogramı, site logosu ve favicon

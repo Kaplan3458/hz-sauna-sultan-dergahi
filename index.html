@@ -445,13 +445,13 @@
     .support h2 { color: white; }
     .support .lead { color: rgba(255,255,255,.63); }
     .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 50px; }
-    .support-card { padding: 38px; border: 1px solid rgba(255,255,255,.12); border-radius: 28px; background: rgba(255,255,255,.045); }
+    .support-card { display: flex; flex-direction: column; padding: 38px; border: 1px solid rgba(255,255,255,.12); border-radius: 28px; background: rgba(255,255,255,.045); }
     .support-card h3 { font-size: 1.65rem; }
     .support-card p { margin-top: 12px; color: rgba(255,255,255,.62); font-size: .9rem; }
     .support-card ul { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
     .support-card li { display: flex; gap: 11px; color: rgba(255,255,255,.8); font-size: .86rem; }
     .support-card li::before { content: "✓"; color: var(--gold-pale); }
-    .support-action { width: 100%; margin-top: 28px; }
+    .support-action { width: 100%; margin-top: auto; }
 
     .transparency-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
     .report-list { display: grid; gap: 13px; margin-top: 30px; }
@@ -803,7 +803,7 @@
           <p class="intro">Manevi değerleri yaşatmak, ihtiyaç sahiplerinin yanında olmak ve merhameti dayanışmaya dönüştürmek için bir aradayız.</p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20talebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Yardım talebinde bulun <span>→</span></a>
-            <a class="btn btn-ghost" href="turbe-rehberi.html">Türbe Rehberi</a>
+            <a class="btn btn-gold" href="turbe-rehberi.html">Türbe Rehberi</a>
           </div>
         </div>
         <aside class="hero-card">
@@ -933,16 +933,16 @@
         </div>
         <div class="turbe-cards">
           <a class="turbe-card" href="turbe-rehberi.html">
-            <img src="assets/turbeler/14.webp" alt="Hz. İsmail Sauna Sultan türbesi" loading="lazy" style="object-position:50% 20%">
-            <span class="turbe-card-copy"><small>Sarıyer · İstanbul</small><h3>Hz. İsmail Sauna Sultan</h3><span>Konum ve yol tarifini görüntüle →</span></span>
-          </a>
-          <a class="turbe-card" href="turbe-rehberi.html">
             <img src="assets/turbeler/1.webp" alt="Hz. Pir Hasan Hüsameddin Uşşâkî türbesi" loading="lazy">
             <span class="turbe-card-copy"><small>Beyoğlu · İstanbul</small><h3>Hz. Pir Hasan Hüsameddin Uşşâkî</h3><span>Rehberde görüntüle →</span></span>
           </a>
           <a class="turbe-card" href="turbe-rehberi.html">
-            <img src="assets/turbeler/29.webp" alt="Hz. Aziz Mahmud Hüdayi türbesi" loading="lazy">
-            <span class="turbe-card-copy"><small>Üsküdar · İstanbul</small><h3>Hz. Aziz Mahmud Hüdayi</h3><span>Rehberde görüntüle →</span></span>
+            <img src="assets/turbeler/2.webp" alt="Hz. Seyyid Cemaleddin Uşşâkî türbesi" loading="lazy">
+            <span class="turbe-card-copy"><small>Eyüpsultan · İstanbul</small><h3>Hz. Seyyid Cemaleddin Uşşâkî</h3><span>Rehberde görüntüle →</span></span>
+          </a>
+          <a class="turbe-card" href="turbe-rehberi.html">
+            <img src="assets/turbeler/14.webp" alt="Hz. İsmail Sauna Sultan türbesi" loading="lazy" style="object-position:50% 20%">
+            <span class="turbe-card-copy"><small>Sarıyer · İstanbul</small><h3>Hz. İsmail Sauna Sultan</h3><span>Konum ve yol tarifini görüntüle →</span></span>
           </a>
         </div>
       </div>
@@ -976,7 +976,7 @@
         <p class="lead">Gönüllü olarak zamanınızı paylaşabilir, yardım talebi veya faaliyet bilgisi için doğrudan bize ulaşabilirsiniz.</p>
         <div class="support-grid">
           <article class="support-card"><h3>Gönüllü olun</h3><p>Üyelik şartı olmadan, beceri ve zamanınıza uygun çalışmalara katılın.</p><ul><li>Yardım paketleme</li><li>Saha ve dağıtım desteği</li><li>Eğitim faaliyetleri</li><li>Organizasyon ve ulaşım</li><li>Fotoğraf ve içerik</li><li>İletişim desteği</li></ul><button class="btn btn-gold support-action volunteer-form-trigger" type="button">Gönüllü başvuru formunu aç</button></article>
-          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><a class="btn btn-ghost support-action" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20ba%C5%9Fvurusu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan ulaş</a></article>
+          <article class="support-card"><h3>Yardım talebi oluşturun</h3><p>Başvurular inceleme ve gerektiğinde saha değerlendirmesiyle, mahremiyet gözetilerek ele alınır.</p><ul><li>Kişisel verilerin korunması</li><li>Adil ihtiyaç değerlendirmesi</li><li>Yetkili ekip tarafından dönüş</li></ul><a class="btn btn-gold support-action" href="https://wa.me/905304589383?text=Merhaba%2C%20yard%C4%B1m%20ba%C5%9Fvurusu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan ulaş</a></article>
         </div>
       </div>
     </section>
@@ -988,11 +988,11 @@
           <h2>Güven, açık bilgiyle güçlenir.</h2>
           <p class="lead">Yardım, gönüllü ve bağışçı kayıtlarını mevzuata uygun biçimde tutmayı; faaliyet ve dağıtım sonuçlarını raporlamayı esas alıyoruz.</p>
           <div class="report-list">
-            <div class="report"><span>Dernek tüzüğü</span><small>Yayın onayı bekleniyor</small></div>
+            <a class="report" href="belgeler/sauna-sultan-dernek-tuzugu.pdf" target="_blank" rel="noopener"><span>Dernek tüzüğü</span><small>PDF’yi görüntüle →</small></a>
             <div class="report"><span>Yönetim ve denetim yapısı</span><small>Hazırlanıyor</small></div>
             <div class="report"><span>Faaliyet raporu</span><small>Hazırlanıyor</small></div>
             <div class="report"><span>Yardım dağıtım özeti</span><small>Hazırlanıyor</small></div>
-            <div class="report"><span>KVKK bilgilendirmesi</span><small>Hazırlanıyor</small></div>
+            <a class="report" href="kvkk.html"><span>KVKK aydınlatma metni</span><small>Metni görüntüle →</small></a>
           </div>
         </div>
         <aside class="transparency-art">
@@ -1054,7 +1054,7 @@
       <footer>
         <div class="footer-inner">
           <span>© 2026 Sauna Sultan Manevi Değerleri Yaşatma ve Yardımlaşma Derneği</span>
-          <div class="footer-links"><a href="turbe-rehberi.html">Türbe Rehberi</a><a href="kuran-rehberi.html">Kur’an Rehberi</a><a href="#seffaflik">Şeffaflık</a><a href="#anasayfa">Yukarı çık ↑</a></div>
+          <div class="footer-links"><a href="turbe-rehberi.html">Türbe Rehberi</a><a href="kuran-rehberi.html">Kur’an Rehberi</a><a href="belgeler/sauna-sultan-dernek-tuzugu.pdf" target="_blank" rel="noopener">Tüzük</a><a href="kvkk.html">KVKK</a><a href="#seffaflik">Şeffaflık</a><a href="#anasayfa">Yukarı çık ↑</a></div>
         </div>
       </footer>
     </div>
@@ -1116,7 +1116,7 @@
         </div>
         <label class="consent-row">
           <input type="checkbox" name="consent" required>
-          <span>Başvuru bilgilerimin gönüllülük iletişimi amacıyla kullanılmasını ve WhatsApp mesajına aktarılmasını kabul ediyorum. *</span>
+          <span><a href="kvkk.html" target="_blank" rel="noopener">KVKK aydınlatma metnini</a> okudum; başvuru bilgilerimin gönüllülük iletişimi amacıyla kullanılmasını ve WhatsApp mesajına aktarılmasını kabul ediyorum. *</span>
         </label>
         <div class="form-actions">
           <button class="btn btn-gold" type="submit">WhatsApp ile başvuruyu gönder</button>
