@@ -183,10 +183,9 @@
     .adab-card strong { display: block; margin-top: 17px; color: white; font-family: "Playfair Display", serif; font-size: 1.15rem; }
     .adab-card p { margin: 8px 0 0; color: rgba(255,255,255,.62); font-size: .79rem; }
     .adab-note { margin-top: 25px; padding: 18px 20px; color: var(--gold-pale); border-left: 3px solid var(--gold); background: rgba(196,154,82,.08); border-radius: 0 12px 12px 0; font-size: .8rem; }
-    .favorite { position: absolute; right: 15px; top: 15px; z-index: 2; width: 39px; height: 39px; display: grid; place-items: center; color: white; background: rgba(9,42,34,.88); border: 1px solid rgba(255,255,255,.25); border-radius: 50%; cursor: pointer; font-size: 1rem; }
-    .favorite.saved { color: var(--forest-deep); background: var(--gold-pale); }
+    
     .detail-btn { grid-column: 1 / -1; min-height: 43px; color: var(--forest); background: white; border: 1px solid var(--line); border-radius: 999px; font-size: .76rem; font-weight: 700; cursor: pointer; }
-    .nearby { margin-left: auto; min-height: 42px; padding: 0 16px; color: var(--forest-deep); background: var(--gold-pale); border: 0; border-radius: 999px; font-size: .79rem; font-weight: 700; cursor: pointer; }
+    
     .map-panel { display: grid; grid-template-columns: 300px 1fr; gap: 0; overflow: hidden; margin: 26px 0 34px; border: 1px solid var(--line); border-radius: 23px; background: white; box-shadow: 0 14px 36px rgba(17,49,39,.08); }
     .map-copy { padding: 25px; }
     .map-copy h3 { color: var(--forest-deep); font-size: 1.45rem; }
@@ -261,7 +260,7 @@
       .grid { grid-template-columns: 1fr; }
       .adab-head { grid-template-columns: 1fr; gap: 15px; }
       .adab-grid { grid-template-columns: 1fr; }
-      .nearby { width: 100%; margin-left: 0; }
+      
       .result-line { align-items: flex-start; flex-direction: column; gap: 4px; }
       .footer-inner { grid-template-columns: 1fr; }
       .whatsapp span { display: none; }
@@ -354,8 +353,8 @@
           <button class="tab" type="button" data-category="silsele">Uşşâkî–Nâzenî Silsilesi</button>
           <button class="tab" type="button" data-category="anadolu">Anadolu Gönül Sultanları</button>
           <button class="tab" type="button" data-category="istanbul">Yalnızca İstanbul</button>
-          <button class="tab" type="button" data-category="favorites">Favorilerim</button>
-          <button class="nearby" id="nearbyButton" type="button">Yakınımdaki Türbeleri haritada aç ↗</button>
+          
+         
         </div>
         <section class="map-panel" aria-label="Ziyaret noktaları haritası"><div class="map-copy"><span class="category">Harita görünümü</span><h3>29 noktayı haritada inceleyin.</h3><p>Listeden bir ziyaret noktası seçtiğinizde harita o konuma odaklanır.</p><select id="mapSelect" aria-label="Haritada gösterilecek ziyaret noktasını seçin"></select></div><iframe id="mapFrame" title="Seçilen türbenin haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></section>
 
@@ -403,7 +402,7 @@
     const toast = document.getElementById('toast');
     const tabs = [...document.querySelectorAll('.tab')];
     let selectedCategory = 'all';
-    let favorites = new Set(JSON.parse(localStorage.getItem('turbeFavorites') || '[]'));
+    
 
     const clean = value => String(value || '').normalize('NFC').replace(/\u0307/g, '');
     const searchable = value => clean(value).toLocaleLowerCase('tr-TR');
@@ -445,7 +444,7 @@
         const categoryMatch =
           selectedCategory === 'all' ||
           (selectedCategory === 'istanbul' && item.isIstanbul) ||
-          (selectedCategory === 'favorites' && favorites.has(item.id)) ||
+         
           categoryOf(item) === selectedCategory;
         return queryMatch && cityMatch && categoryMatch;
       });
@@ -461,7 +460,7 @@
             <div class="card-media">
               <img src="assets/turbeler/${item.id}.webp" alt="${titleCase(item.name)}" loading="lazy" decoding="async"${imageStyle}>
               <span class="card-index">${String(item.id).padStart(2, '0')}</span>
-              <button class="favorite ${favorites.has(item.id) ? 'saved' : ''}" type="button" data-favorite="${item.id}" aria-label="${favorites.has(item.id) ? 'Favorilerden çıkar' : 'Favorilere ekle'}">${favorites.has(item.id) ? '♥' : '♡'}</button>
+              
             </div>
             <div class="card-body">
               <span class="category">${categoryLabel(item)}</span>
@@ -493,14 +492,7 @@
       render();
     }));
     grid.addEventListener('click', async event => {
-      const favoriteButton = event.target.closest('[data-favorite]');
-      if (favoriteButton) {
-        const id = Number(favoriteButton.dataset.favorite);
-        favorites.has(id) ? favorites.delete(id) : favorites.add(id);
-        localStorage.setItem('turbeFavorites', JSON.stringify([...favorites]));
-        toast.textContent = favorites.has(id) ? 'Favorilere eklendi' : 'Favorilerden çıkarıldı';
-        toast.classList.add('show'); window.setTimeout(() => toast.classList.remove('show'), 1500); render(); return;
-      }
+     
       const detailButton = event.target.closest('[data-detail]');
       if (detailButton) { openDetail(Number(detailButton.dataset.detail)); return; }
       const button = event.target.closest('.copy');
@@ -533,11 +525,7 @@
     document.querySelector('.detail-close').addEventListener('click', closeDetail);
     detailModal.addEventListener('click', event => { if (event.target === detailModal) closeDetail(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && !detailModal.hidden) closeDetail(); });
-    document.getElementById('nearbyButton').addEventListener('click', () => {
-      const fallback = () => window.open('https://www.google.com/maps/search/t%C3%BCrbe', '_blank', 'noopener');
-      if (!navigator.geolocation) return fallback();
-      navigator.geolocation.getCurrentPosition(pos => window.open(`https://www.google.com/maps/search/t%C3%BCrbe/@${pos.coords.latitude},${pos.coords.longitude},12z`, '_blank', 'noopener'), fallback);
-    });
+    
 
     const menuButton = document.querySelector('.menu-btn');
     const navLinks = document.querySelector('.nav-links');
